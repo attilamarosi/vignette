@@ -10,9 +10,22 @@
 		D80626722E01A014000C4B5F /* YettelVignette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YettelVignette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D867D3B62E01D8F00021956E /* Exceptions for "YettelVignette" folder in "YettelVignette" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D80626712E01A014000C4B5F /* YettelVignette */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D80626742E01A014000C4B5F /* YettelVignette */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D867D3B62E01D8F00021956E /* Exceptions for "YettelVignette" folder in "YettelVignette" target */,
+			);
 			path = YettelVignette;
 			sourceTree = "<group>";
 		};
@@ -79,6 +92,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
+				ORGANIZATIONNAME = "Attila Marosi";
 				TargetAttributes = {
 					D80626712E01A014000C4B5F = {
 						CreatedOnToolsVersion = 16.4;
@@ -86,11 +100,12 @@
 				};
 			};
 			buildConfigurationList = D806266D2E01A014000C4B5F /* Build configuration list for PBXProject "YettelVignette" */;
-			developmentRegion = en;
+			developmentRegion = hu;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				hu,
 			);
 			mainGroup = D80626692E01A014000C4B5F;
 			minimizedProjectReferenceProxies = 1;
@@ -185,6 +200,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -242,6 +258,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -256,6 +273,8 @@
 				DEVELOPMENT_TEAM = 7MF6ZC4JST;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YettelVignette/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Yettel Vignette";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -289,6 +308,8 @@
 				DEVELOPMENT_TEAM = 7MF6ZC4JST;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YettelVignette/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Yettel Vignette";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

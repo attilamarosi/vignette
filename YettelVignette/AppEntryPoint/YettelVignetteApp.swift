@@ -1,4 +1,4 @@
-// 
+// Copyright © 2025 Attila Marosi. All rights reserved.
 
 import SwiftUI
 
@@ -6,7 +6,7 @@ import SwiftUI
 struct YettelVignetteApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }
