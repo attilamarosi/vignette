@@ -27,12 +27,12 @@ struct SelectableListItemView: View {
                     .overlay {
                         HStack {
                             YettelRadioButton(selected: $selected)
-                            Spacer()
+                                .padding(.trailing, .padding16)
                             Text(title)
-                                .fontWeight(.bold)
+                                .font(.paragraphMain)
                             Spacer()
                             Text(price)
-                                .fontWeight(.bold)
+                                .font(.headingMain)
                         }
                         .padding(.horizontal, .padding16)
                             

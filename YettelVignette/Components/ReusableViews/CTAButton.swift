@@ -67,7 +67,7 @@ struct CTAButton: View {
                 )
                 .overlay {
                     Text(title)
-                        .font(.headingMain)
+                        .font(.paragraphMain)
                         .foregroundStyle(style.textColor)
                         
                 }
@@ -83,11 +83,11 @@ struct CTAButton: View {
 #Preview {
     Group {
         CTAButton(style: .primary,
-                  title: String(localized: "common_ok"),
+                  title: String(localized: "common_next"),
                   action: {})
         
         CTAButton(style: .secondary,
-                  title: String(localized: "common_ok"),
+                  title: String(localized: "common_cancel"),
                   action: {})
     }
     .padding(.vertical, .padding16)

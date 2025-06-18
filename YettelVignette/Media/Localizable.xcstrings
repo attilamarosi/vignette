@@ -1,6 +1,40 @@
 {
   "sourceLanguage" : "hu",
   "strings" : {
+    "common_cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mégsem"
+          }
+        }
+      }
+    },
+    "common_next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tovább"
+          }
+        }
+      }
+    },
     "common_ok" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -19,44 +53,36 @@
       }
     },
     "Hello" : {
-
+      "shouldTranslate" : false
     },
     "radio_buton_not_selected" : {
-
-    },
-    "radio_buton_selected" : {
-
-    },
-    "radio_button_not_selected" : {
-      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Button not selected"
+            "value" : "Selected"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gomb nincs kiválasztva"
+            "value" : "Kiválasztva"
           }
         }
       }
     },
-    "radio_button_selected" : {
-      "extractionState" : "manual",
+    "radio_buton_selected" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Button selected"
+            "value" : "Not selected"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gomb kiválasztva"
+            "value" : "Nincs kiválasztva"
           }
         }
       }

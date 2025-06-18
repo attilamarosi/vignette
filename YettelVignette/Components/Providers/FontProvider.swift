@@ -51,7 +51,7 @@ public extension Font {
     
     static var paragraphMain: Font {
         yettelFont(size: .medium,
-                   type: .oswaldMedium)
+                   type: .oswaldRegular)
     }
     
     /*
@@ -60,7 +60,7 @@ public extension Font {
     
     static var headingMain: Font {
         yettelFont(size: .medium,
-                   type: .oswaldBold)
+                   type: .oswaldMedium)
     }
     
     static var headingExtraLarge: Font {

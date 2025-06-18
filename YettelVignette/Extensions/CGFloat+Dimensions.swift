@@ -5,6 +5,13 @@ import Foundation
 extension CGFloat {
     
     // MARK: - Heights
+    static var height1: CGFloat {
+        1
+    }
+    
+    static var height20: CGFloat {
+        20
+    }
     
     static var height24: CGFloat {
         24
@@ -40,6 +47,10 @@ extension CGFloat {
         16
     }
    
+    static var width20: CGFloat {
+        20
+    }
+    
     static var width24: CGFloat {
         24
     }
@@ -58,6 +69,10 @@ extension CGFloat {
     
     // MARK: - Corner radius
    
+    static var cornerRadius4: CGFloat {
+        4
+    }
+    
     static var cornerRadius8: CGFloat {
         8
     }
