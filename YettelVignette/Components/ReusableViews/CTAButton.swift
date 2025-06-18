@@ -55,6 +55,8 @@ struct CTAButton: View {
     var title: String
     var action: (() -> Void)
     
+    let id = UUID()
+    
     var body: some View {
         Button(action: action) {
             RoundedRectangle(cornerRadius: .cornerRadius24)

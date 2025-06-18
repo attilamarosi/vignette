@@ -63,6 +63,11 @@ public extension Font {
                    type: .oswaldMedium)
     }
     
+    static var headingLarge: Font {
+        yettelFont(size: .large,
+                   type: .oswaldBold)
+    }
+    
     static var headingExtraLarge: Font {
         yettelFont(size: .displayLarge,
                    type: .oswaldSemiBold)

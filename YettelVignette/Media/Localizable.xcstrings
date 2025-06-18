@@ -52,8 +52,21 @@
         }
       }
     },
-    "Hello" : {
-      "shouldTranslate" : false
+    "error_main_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occured!"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hiba történt!"
+          }
+        }
+      }
     },
     "radio_buton_not_selected" : {
       "localizations" : {

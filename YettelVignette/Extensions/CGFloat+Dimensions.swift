@@ -21,6 +21,10 @@ extension CGFloat {
         28
     }
     
+    static var height32: CGFloat {
+        32
+    }
+    
     static var height36: CGFloat {
         36
     }
@@ -31,6 +35,14 @@ extension CGFloat {
     
     static var height76: CGFloat {
         76
+    }
+    
+    static var height200: CGFloat {
+        200
+    }
+    
+    static var height300: CGFloat {
+        300
     }
     
     static var buttonHeight: CGFloat {
@@ -86,6 +98,10 @@ extension CGFloat {
     }
     
     // MARK: - Paddings
+   
+    static var padding8: CGFloat {
+        8
+    }
     
     static var padding16: CGFloat {
         16
