@@ -17,6 +17,49 @@
           }
         }
       }
+    },
+    "Hello" : {
+
+    },
+    "radio_buton_not_selected" : {
+
+    },
+    "radio_buton_selected" : {
+
+    },
+    "radio_button_not_selected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Button not selected"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gomb nincs kiválasztva"
+          }
+        }
+      }
+    },
+    "radio_button_selected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Button selected"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gomb kiválasztva"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

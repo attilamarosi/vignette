@@ -63,16 +63,17 @@ struct CTAButton: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: .cornerRadius24)
                         .stroke(style.borderColor,
-                                lineWidth: 2)
+                                lineWidth: .width2)
                 )
                 .overlay {
                     Text(title)
-                        .font(.yettelFont(size: .large, type: .klavikaBold))
+                        .font(.headingMain)
                         .foregroundStyle(style.textColor)
                         
                 }
                 .padding(.horizontal, .padding16)
         }
+        .buttonStyle(.plain)
         .accessibilityIdentifier(TestAutomationIDs.General.ctaButton)
         .accessibilityLabel(title)
     }
@@ -80,7 +81,14 @@ struct CTAButton: View {
 
 // MARK: - Previews
 #Preview {
-    CTAButton(style: .primary,
-              title: String(localized: "common_ok"),
-              action: {})
+    Group {
+        CTAButton(style: .primary,
+                  title: String(localized: "common_ok"),
+                  action: {})
+        
+        CTAButton(style: .secondary,
+                  title: String(localized: "common_ok"),
+                  action: {})
+    }
+    .padding(.vertical, .padding16)
 }

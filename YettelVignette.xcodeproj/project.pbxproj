@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D867D3B62E01D8F00021956E /* Exceptions for "YettelVignette" folder in "YettelVignette" target */ = {
+		D83381132E028BED00199801 /* Exceptions for "YettelVignette" folder in "YettelVignette" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -24,7 +24,7 @@
 		D80626742E01A014000C4B5F /* YettelVignette */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				D867D3B62E01D8F00021956E /* Exceptions for "YettelVignette" folder in "YettelVignette" target */,
+				D83381132E028BED00199801 /* Exceptions for "YettelVignette" folder in "YettelVignette" target */,
 			);
 			path = YettelVignette;
 			sourceTree = "<group>";

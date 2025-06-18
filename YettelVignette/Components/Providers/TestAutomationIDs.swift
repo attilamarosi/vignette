@@ -6,5 +6,6 @@ struct TestAutomationIDs {
     
     struct General {
         static let ctaButton = "test_cta_button"
+        static let radioButton = "test_radio_button"
     }
 }

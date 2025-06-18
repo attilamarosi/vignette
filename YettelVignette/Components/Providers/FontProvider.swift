@@ -15,13 +15,12 @@ public enum FontSize: CGFloat {
 }
 
 public enum FontType: String {
-    case klavikaBold          = "klavika-bold"
-    case klavikaBoldItalic    = "klavika-bold-italic"
-    case klavikaLight         = "klavika-light"
-    case klavikaLightItalic   = "klavika-light-italic"
-    case klavikaMedium        = "klavika-medium"
-    case klavikaMediumItalic  = "klavika-medium-italic"
-    case klavikaRegularItalic = "klavika-regular-italic"
+    case oswaldBold         = "Oswald-Bold"
+    case oswaldExtraLight   = "Oswald-ExtraLight"
+    case oswaldLight        = "Oswald-Light"
+    case oswaldMedium       = "Oswald-Medium"
+    case oswaldRegular      = "Oswald-Regular"
+    case oswaldSemiBold     = "Oswald-SemiBold"
 }
 
 // MARK: - View Modifier for using a custom Font
@@ -41,7 +40,7 @@ public extension Font {
     
     // Use this for defining custom size and type
     static func yettelFont(size: FontSize,
-                           type: FontType = .klavikaBold) -> Font {
+                           type: FontType = .oswaldMedium) -> Font {
         Font.custom(type.rawValue,
                     size: size.rawValue)
     }
@@ -52,7 +51,7 @@ public extension Font {
     
     static var paragraphMain: Font {
         yettelFont(size: .medium,
-                   type: .klavikaLight)
+                   type: .oswaldMedium)
     }
     
     /*
@@ -61,11 +60,11 @@ public extension Font {
     
     static var headingMain: Font {
         yettelFont(size: .medium,
-                   type: .klavikaBold)
+                   type: .oswaldBold)
     }
     
     static var headingExtraLarge: Font {
         yettelFont(size: .displayLarge,
-                   type: .klavikaBold)
+                   type: .oswaldSemiBold)
     }
 }
