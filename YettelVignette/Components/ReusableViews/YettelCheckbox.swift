@@ -24,7 +24,7 @@ struct YettelCheckbox: View {
                 
                 
                 // Checkmark image
-                Image("check-thick")
+                Image("icon-check-thick")
                     .opacity(selected ? 1 : 0)
             }
         }

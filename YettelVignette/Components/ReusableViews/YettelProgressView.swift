@@ -10,6 +10,9 @@ struct YettelProgressView: View {
         VStack {
             ZStack {
                 
+                Color.colorNavy
+                    .edgesIgnoringSafeArea(.all)
+                
                 Circle()
                     .fill(.colorLime)
                     .frame(width: .width48, height: .height48)

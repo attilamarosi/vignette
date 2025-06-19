@@ -8,10 +8,28 @@ struct RootView: View {
     @StateObject private var viewModel = RootViewModel()
     
     var body: some View {
-        NavigationStack(path: $router.navigationPath) {
+        YettelNavigationBarContainerView(path: $router.navigationPath) {
             
-          EmptyView()
-            
+            // Content
+            AsyncContentView(viewModel: viewModel) {
+                ScrollView {
+                    VStack {
+                        Button {
+                            router.push(to: .order)
+                        } label: {
+                            Text("go")
+                        }
+
+                    }
+                    .padding(.padding16)
+                }
+                
+                
+            }
+            // Fires necessary tasks when view appears
+            .task {
+                viewModel.handleOnAppear()
+            }
             // Handles navigation destinations
             .navigationDestination(for: Routes.self) { route in
                 switch route {
@@ -19,8 +37,8 @@ struct RootView: View {
                     VignetteOrderDetailView()
                 }
             }
+            
         }
-       
     }
 }
 

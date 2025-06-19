@@ -27,7 +27,7 @@ extension CTAButtonStyle {
         case .primary:
             .colorNavy
         case .secondary:
-            .colorWhite
+            .clear
         }
     }
     

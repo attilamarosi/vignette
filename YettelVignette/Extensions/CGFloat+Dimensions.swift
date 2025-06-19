@@ -33,6 +33,10 @@ extension CGFloat {
         48
     }
     
+    static var height72: CGFloat {
+        72
+    }
+    
     static var height76: CGFloat {
         76
     }
