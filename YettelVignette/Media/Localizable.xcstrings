@@ -91,6 +91,23 @@
         }
       }
     },
+    "purchase_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vásárlás"
+          }
+        }
+      }
+    },
     "radio_buton_not_selected" : {
       "localizations" : {
         "en" : {
@@ -124,7 +141,7 @@
       }
     },
     "vignette-%@" : {
-
+      "shouldTranslate" : false
     },
     "vignette-day" : {
       "extractionState" : "manual",

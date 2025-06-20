@@ -9,6 +9,8 @@ public enum VignetteType: String, Codable {
     case year   = "YEAR"
     
     var localizedString: String {
-        String(localized: "vignette-\(self.rawValue.lowercased())")
+        let lowercased = self.rawValue.lowercased()
+        return String(localized: "vignette-\(lowercased)")
+//        String(localized: "vignette-\(self.rawValue.lowercased())")
     }
 }

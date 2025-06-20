@@ -12,29 +12,50 @@ struct HighwayVignetteMainView: View {
                 // Vehicle
                 if let vehicle = viewModel.uiModel?.vehicle {
                     VehicleItemView(vehicle: vehicle)
+                        .padding(.bottom, .padding8)
                 }
                 
                 // Nation-wide highway vignettes
                 VStack {
+                    
+                    // Section title
                     HStack {
                         Text("nation-wide-highway-vignettes")
                             .font(.headingLarge)
                         Spacer()
                     }
                         
-                    if let uiModel = viewModel.uiModel {
-                        ForEach(uiModel.highwayVignettes, id: \.id) { vignette in
-                            SelectableListItemView(selected: .constant(false),
-                                                   title: vignette.productName,
-                                                   price: vignette.price)
+                    // List of available vignettes
+                    VStack {
+                        if let uiModel = viewModel.uiModel {
+                            ForEach(uiModel.highwayVignettes.indices, id: \.self) { index in
+                                let vignette = uiModel.highwayVignettes[index]
+                                let isSelected = Binding(
+                                    get: { vignette.selected },
+                                    set: { newValue in
+                                        if newValue {
+                                            viewModel.selectVignette(at: index)
+                                        }
+                                    })
+                                
+                                SelectableListItemView(selected: isSelected,
+                                                       title: vignette.productName,
+                                                       price: vignette.price)
+                            }
+                            
                         }
+                    }.padding(.bottom, .padding8)
+                    
+                    // Purchase button
+                    CTAButton(style: .primary,
+                              title: String(localized:"purchase_title")) {
+                        
                     }
                     
                 }
                 .padding(.padding16)
                 .background(.colorWhite)
-                .cornerRadius(.cornerRadius8)
-                
+                .cornerRadius(.cornerRadius16)
                 
             }
             .background(.colorGrey)

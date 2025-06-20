@@ -12,6 +12,7 @@ struct VignetteModel: Identifiable {
     var id: String
     var productName: String
     var price: String
+    var selected: Bool
 }
 
 class HighwayVignetteMainViewModel: AsyncViewModel {
@@ -21,6 +22,10 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
     @Published var uiModel: HighwayVignetteUIModel?
     
     var showPopupSubject = PassthroughSubject<PopupModel, Never>()
+    
+    var selectedVignette: VignetteModel? {
+        uiModel?.highwayVignettes.first(where: { $0.selected })
+    }
     
     // MARK: - Dependencies
     private let formatter: HighwayVignetteMainFormatter
@@ -59,5 +64,15 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
         } catch {
             print("@@ error:", error)
         }
+    }
+    
+    func selectVignette(at index: Int) {
+        guard var vignettes = uiModel?.highwayVignettes else { return }
+        
+        for i in vignettes.indices {
+            vignettes[i].selected = (i == index)
+        }
+        
+        uiModel?.highwayVignettes = vignettes
     }
 }

@@ -73,7 +73,6 @@ struct CTAButton: View {
                         .foregroundStyle(style.textColor)
                         
                 }
-                .padding(.horizontal, .padding16)
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier(TestAutomationIDs.General.ctaButton)

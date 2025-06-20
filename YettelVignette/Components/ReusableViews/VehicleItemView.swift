@@ -25,7 +25,7 @@ struct VehicleItemView: View {
         }
         .frame(height: .height72)
         .background(Color.colorWhite)
-        .cornerRadius(.cornerRadius8)
+        .cornerRadius(.cornerRadius16)
     }
 }
 

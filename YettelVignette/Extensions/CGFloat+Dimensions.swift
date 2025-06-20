@@ -97,6 +97,10 @@ extension CGFloat {
         14
     }
     
+    static var cornerRadius16: CGFloat {
+        16
+    }
+    
     static var cornerRadius24: CGFloat {
         24
     }

@@ -13,21 +13,28 @@ struct HighwayVignetteMainFormatter {
                               name: vehicleResponse.name,
                               plateNumber: makePurePlateNumber(vehicleResponse.plate),
                               registrationCode: vehicleResponse.internationalRegistrationCode,
-                              type: VehicleCategoryType(rawValue: vehicleResponse.type) ?? .car)
+                              type: VehicleCategoryType(rawValue: vehicleResponse.type) ?? .car,
+                              vignetteType: vehicleResponse.vignetteType)
         
-        let availableVignettes = vignetteResponse.payload.highwayVignettes.filter({ $0.vehicleCategory == vehicle.type.rawValue })
+        let availableVignettes = vignetteResponse.payload.highwayVignettes
+            .filter { $0.vehicleCategory == vehicle.type.rawValue } // Filter out all the vignettes that are not applied for the user's vehicle category
+            .filter { $0.vignetteType.count == 1 }                  // Filter out all the county vignettes
         
-        let highwayVignettes = availableVignettes.compactMap { vignette -> VignetteModel in
-            var productName = ""
-            if let vignetteType = vignette.vignetteType.first {
-                productName = VignetteType(rawValue: vignetteType)?.localizedString ?? ""
+        // Update the vignettes with the formatted price and product name
+        let highwayVignettes = availableVignettes
+            .compactMap { vignette -> VignetteModel in
+                var productName = ""
+                if let vignetteType = vignette.vignetteType.first {
+                    let detailedName = VignetteType(rawValue: vignetteType)?.localizedString ?? ""
+                    productName = "\(vehicle.vignetteType ?? "") - \(detailedName)"
+                }
+                
+                return VignetteModel(id: vignette.vignetteType.joined(separator: "-"),
+                                     productName: productName,
+                                     price: formatToHUF(vignette.sum),
+                                     selected: false)
             }
-            
-            return VignetteModel(id: vignette.vignetteType.joined(separator: "-"),
-                                 productName: productName,
-                                 price: formatToHUF(vignette.sum))
-        }
-      
+        
         return HighwayVignetteUIModel(vehicle: vehicle,
                                       highwayVignettes: highwayVignettes)
     }
