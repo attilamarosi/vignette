@@ -3,7 +3,7 @@
 import SwiftUI
 
 public enum Routes: Hashable {
-    case order
+    case highwayVignetteMain
 }
 
 class Router: ObservableObject {
@@ -14,7 +14,7 @@ class Router: ObservableObject {
         navigationPath.append(route)
     }
     
-    func navigateBack() {
+    func pop() {
         guard navigationPath.count > 1 else { return }
         navigationPath.removeLast()
     }

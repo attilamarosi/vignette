@@ -8,14 +8,14 @@ struct RootView: View {
     @StateObject private var viewModel = RootViewModel()
     
     var body: some View {
-        YettelNavigationBarContainerView(path: $router.navigationPath) {
+        NavigationStack(path: $router.navigationPath) {
             
             // Content
             AsyncContentView(viewModel: viewModel) {
                 ScrollView {
                     VStack {
                         Button {
-                            router.push(to: .order)
+                            router.push(to: .highwayVignetteMain)
                         } label: {
                             Text("go")
                         }
@@ -33,11 +33,10 @@ struct RootView: View {
             // Handles navigation destinations
             .navigationDestination(for: Routes.self) { route in
                 switch route {
-                case .order:
-                    VignetteOrderDetailView()
+                case .highwayVignetteMain:
+                    HighwayVignetteViewAssembly.createView()
                 }
             }
-            
         }
     }
 }

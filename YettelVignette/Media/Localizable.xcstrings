@@ -74,6 +74,23 @@
     "go" : {
 
     },
+    "nation-wide-highway-vignettes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nation-wide highway vignettes"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Országos matricák"
+          }
+        }
+      }
+    },
     "radio_buton_not_selected" : {
       "localizations" : {
         "en" : {
@@ -102,6 +119,77 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nincs kiválasztva"
+          }
+        }
+      }
+    },
+    "vignette-%@" : {
+
+    },
+    "vignette-day" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 day"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "napi (1 napos)"
+          }
+        }
+      }
+    },
+    "vignette-month" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 month"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "havi"
+          }
+        }
+      }
+    },
+    "vignette-week" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 week"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "heti"
+          }
+        }
+      }
+    },
+    "vignette-year" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 year"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "éves"
           }
         }
       }

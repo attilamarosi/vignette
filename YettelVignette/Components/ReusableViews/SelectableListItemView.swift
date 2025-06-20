@@ -35,9 +35,7 @@ struct SelectableListItemView: View {
                                 .font(.headingMain)
                         }
                         .padding(.horizontal, .padding16)
-                            
                     }
-                    .padding(.horizontal, .padding16)
             }
         }
         .buttonStyle(.plain)

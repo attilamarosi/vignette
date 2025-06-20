@@ -18,7 +18,9 @@ extension NetworkService {
                              query: String? = nil,
                              body: String? = nil) async throws -> T {
         
-        guard let endpointURL = URL(string: "\(apiVersion.rawValue)\(endpoint.urlSuffix)") else {
+        let urlPrefix = "http://127.0.0.1:8080/"
+        
+        guard let endpointURL = URL(string: "\(urlPrefix)\(apiVersion.rawValue)\(endpoint.urlSuffix)") else {
             throw APIError.badURL
         }
         

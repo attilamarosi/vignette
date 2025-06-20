@@ -1,0 +1,63 @@
+// Copyright © 2025 Attila Marosi. All rights reserved.
+
+import Combine
+
+/// Represents the UI model presented on the screen
+struct HighwayVignetteUIModel {
+    var vehicle: Vehicle
+    var highwayVignettes: [VignetteModel]
+}
+
+struct VignetteModel: Identifiable {
+    var id: String
+    var productName: String
+    var price: String
+}
+
+class HighwayVignetteMainViewModel: AsyncViewModel {
+    
+    // MARK: - Published Properties
+    @Published var viewState: ViewState = .idle
+    @Published var uiModel: HighwayVignetteUIModel?
+    
+    var showPopupSubject = PassthroughSubject<PopupModel, Never>()
+    
+    // MARK: - Dependencies
+    private let formatter: HighwayVignetteMainFormatter
+    private let repository: GlobalRepository
+    
+    // MARK: - Initialization
+    init(formatter: HighwayVignetteMainFormatter,
+         repository: GlobalRepository) {
+        self.formatter = formatter
+        self.repository = repository
+    }
+    
+    // MARK: - Public Methods
+    @MainActor
+    func handleOnAppear() async {
+        do {
+            viewState = .loading
+            
+            async let vehicleResponse = repository.getUserVehicle()
+            async let vignetteResponse = repository.getHighwayVignettes()
+            
+            let (vehicle, vignettes) = try await (vehicleResponse, vignetteResponse)
+            
+            uiModel = formatter.createUIModel(from: vehicle,
+                                              vignetteResponse: vignettes)
+            viewState = .finished
+            
+        } catch let error as APIError {
+            let errorModel = ErrorModel(error: error) {
+                Task {
+                    await self.handleOnAppear()
+                }
+            }
+            
+            viewState = .error(errorModel)
+        } catch {
+            print("@@ error:", error)
+        }
+    }
+}

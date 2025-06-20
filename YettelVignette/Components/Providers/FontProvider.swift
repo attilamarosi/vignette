@@ -48,6 +48,11 @@ public extension Font {
     /*
      -- Paragraphs --
      */
+   
+    static var paragraphSmall: Font {
+        yettelFont(size: .extraSmall,
+                   type: .oswaldLight)
+    }
     
     static var paragraphMain: Font {
         yettelFont(size: .medium,
