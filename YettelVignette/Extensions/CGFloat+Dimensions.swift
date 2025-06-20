@@ -41,6 +41,10 @@ extension CGFloat {
         76
     }
     
+    static var height150: CGFloat {
+        150
+    }
+    
     static var height200: CGFloat {
         200
     }
@@ -81,6 +85,10 @@ extension CGFloat {
     
     static var width48: CGFloat {
         48
+    }
+    
+    static var width300: CGFloat {
+        300
     }
     
     // MARK: - Corner radius
