@@ -3,17 +3,17 @@
 import Foundation
 
 protocol GlobalRepository {
-    func getHighwayVignettes() async throws -> NationWideVignetteResponse
-    func getUserVehicle() async throws -> VehicleResponse
+    func fetchVignettes() async throws -> VignetteResponse
+    func fetchUserVehicle() async throws -> VehicleResponse
 }
 
 struct GlobalRepositoryImpl: GlobalRepository, NetworkService {
     
-    func getHighwayVignettes() async throws -> NationWideVignetteResponse {
+    func fetchVignettes() async throws -> VignetteResponse {
         try await request(endpoint: .info)
     }
     
-    func getUserVehicle() async throws -> VehicleResponse {
+    func fetchUserVehicle() async throws -> VehicleResponse {
         try await request(endpoint: .vehicle)
     }
 }

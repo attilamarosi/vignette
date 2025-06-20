@@ -71,6 +71,9 @@
         }
       }
     },
+    "Fizetendő összeg" : {
+
+    },
     "go" : {
 
     },
@@ -141,7 +144,7 @@
       }
     },
     "vignette-%@" : {
-      "shouldTranslate" : false
+
     },
     "vignette-day" : {
       "extractionState" : "manual",
@@ -173,6 +176,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "havi"
+          }
+        }
+      }
+    },
+    "vignette-one-year" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vignettes - 1 year"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Éves vármegyei matricák"
           }
         }
       }

@@ -5,7 +5,7 @@ import Foundation
 struct HighwayVignetteMainFormatter {
     
     func createUIModel(from vehicleResponse: VehicleResponse,
-                       vignetteResponse: NationWideVignetteResponse) -> HighwayVignetteUIModel? {
+                       vignetteResponse: VignetteResponse) -> HighwayVignetteUIModel? {
         let country = Country(hu: vehicleResponse.country.hu,
                               en: vehicleResponse.country.en)
         
@@ -25,7 +25,7 @@ struct HighwayVignetteMainFormatter {
             .compactMap { vignette -> VignetteModel in
                 var productName = ""
                 if let vignetteType = vignette.vignetteType.first {
-                    let detailedName = VignetteType(rawValue: vignetteType)?.localizedString ?? ""
+                    let detailedName = String(localized: "vignette-\(vignetteType.lowercased())")
                     productName = "\(vehicle.vignetteType ?? "") - \(detailedName)"
                 }
                 

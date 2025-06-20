@@ -9,18 +9,23 @@ struct SelectableItemWithCheckboxView: View {
     var price: String
     
     var body: some View {
-        HStack {
-            YettelCheckbox(selected: $isSelected)
-                .padding(.trailing, .padding16)
-            Text(name)
-                .font(.paragraphMain)
-                .foregroundStyle(isSelected ? .colorDarkerGrey : .colorNavy)
-            Spacer()
-            Text(price)
-                .font(.headingMain)
-                .foregroundStyle(.colorNavy)
+        Button {
+            isSelected.toggle()
+        } label: {
+            HStack {
+                YettelCheckbox(selected: $isSelected)
+                    .padding(.trailing, .padding16)
+                Text(name)
+                    .font(.paragraphMain)
+                    .foregroundStyle(isSelected ? .colorDarkerGrey : .colorNavy)
+                Spacer()
+                Text(price)
+                    .font(.headingMain)
+                    .foregroundStyle(.colorNavy)
+            }
+            .padding(.horizontal, .padding16)
         }
-        .padding(.horizontal, .padding16)
+        .buttonStyle(.plain)
     }
 }
 

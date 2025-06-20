@@ -2,15 +2,13 @@
 
 import Foundation
 
-public enum VignetteType: String, Codable {
+public enum VignetteType: String, Codable, CaseIterable {
     case day    = "DAY"
     case week   = "WEEK"
     case month  = "MONTH"
     case year   = "YEAR"
     
     var localizedString: String {
-        let lowercased = self.rawValue.lowercased()
-        return String(localized: "vignette-\(lowercased)")
-//        String(localized: "vignette-\(self.rawValue.lowercased())")
+        String(localized: "vignette-\(self.rawValue.lowercased())")
     }
 }

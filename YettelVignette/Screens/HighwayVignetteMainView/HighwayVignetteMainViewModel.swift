@@ -23,6 +23,8 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
     
     var showPopupSubject = PassthroughSubject<PopupModel, Never>()
     
+    var apiVignetteResponse: VignetteResponse?
+    
     var selectedVignette: VignetteModel? {
         uiModel?.highwayVignettes.first(where: { $0.selected })
     }
@@ -44,13 +46,15 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
         do {
             viewState = .loading
             
-            async let vehicleResponse = repository.getUserVehicle()
-            async let vignetteResponse = repository.getHighwayVignettes()
+            async let vehicleResponse = repository.fetchUserVehicle()
+            async let vignetteResponse = repository.fetchVignettes()
             
             let (vehicle, vignettes) = try await (vehicleResponse, vignetteResponse)
             
             uiModel = formatter.createUIModel(from: vehicle,
                                               vignetteResponse: vignettes)
+            apiVignetteResponse = vignettes
+            
             viewState = .finished
             
         } catch let error as APIError {

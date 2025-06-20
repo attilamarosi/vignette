@@ -5,6 +5,7 @@ import SwiftUI
 struct HighwayVignetteMainView: View {
     
     @ObservedObject var viewModel: HighwayVignetteMainViewModel
+    @State private var navigateToCountyVignetteView = false
     
     var body: some View {
         AsyncContentView(viewModel: viewModel) {
@@ -49,7 +50,7 @@ struct HighwayVignetteMainView: View {
                     // Purchase button
                     CTAButton(style: .primary,
                               title: String(localized:"purchase_title")) {
-                        
+                
                     }
                     
                 }
@@ -57,12 +58,27 @@ struct HighwayVignetteMainView: View {
                 .background(.colorWhite)
                 .cornerRadius(.cornerRadius16)
                 
+                
+                // Navigation link view
+                VStack {
+                    CTANavigationLinkView(title: String(localized: "vignette-one-year")) {
+                        navigateToCountyVignetteView = true
+                    }
+                        
+                }
+                .padding(.top, .padding8)
+
             }
             .background(.colorGrey)
             .padding(.padding16)
         }
+        // Handle on appear
         .task {
             await viewModel.handleOnAppear()
+        }
+        // Navigation
+        .navigationDestination(isPresented: $navigateToCountyVignetteView) {
+            CountyVignetteViewAssembly.createView(vignettes: viewModel.apiVignetteResponse)
         }
     }
 }
@@ -70,4 +86,5 @@ struct HighwayVignetteMainView: View {
 // MARK: - Previews
 #Preview {
     HighwayVignetteViewAssembly.createView()
+        .environment(\.locale, .init(identifier: "hu_HU"))
 }

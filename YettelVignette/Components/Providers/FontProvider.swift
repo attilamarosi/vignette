@@ -32,6 +32,7 @@ public struct YettelFontModifier: ViewModifier {
         content
             .font(.yettelFont(size: size,
                               type: type))
+            .background(.colorNavy)
     }
 }
 
@@ -62,6 +63,11 @@ public extension Font {
     /*
      -- Headings --
      */
+    
+    static var headingSmall: Font {
+        yettelFont(size: .small,
+                   type: .oswaldBold)
+    }
     
     static var headingMain: Font {
         yettelFont(size: .medium,

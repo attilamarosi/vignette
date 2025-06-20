@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct NationWideVignetteResponse: Codable {
+struct VignetteResponse: Codable {
     let requestId: Int
     let statusCode: String
     let payload: Payload
