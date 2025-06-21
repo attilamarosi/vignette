@@ -43,6 +43,15 @@ struct HighwayVignetteMainFormatter: BaseFormatter {
                                       highwayVignettes: highwayVignettes)
     }
     
+    func updatePurchaseItem(with vignette: [VignetteOrderItem],
+                            for vehicle: Vehicle,
+                            fee: Int) -> VignettePurchaseItem {
+        VignettePurchaseItem(fee: fee,
+                             plateNumber: vehicle.plateNumber,
+                             vehicleCategory: vehicle.type,
+                             vignette: vignette)
+    }
+    
     private func makePurePlateNumber(_ plateNumber: String) -> String {
         plateNumber
             .uppercased()

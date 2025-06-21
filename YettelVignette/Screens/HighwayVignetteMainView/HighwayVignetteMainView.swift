@@ -6,6 +6,7 @@ struct HighwayVignetteMainView: View {
     
     @StateObject var viewModel: HighwayVignetteMainViewModel
     @State private var navigateToCountyVignetteView = false
+    @State private var navigateToPaymentConfirmationView = false
     
     var body: some View {
         AsyncContentView(viewModel: viewModel) {
@@ -51,8 +52,9 @@ struct HighwayVignetteMainView: View {
                     // Purchase button
                     CTAButton(style: .primary,
                               title: String(localized:"purchase_title")) {
-                
+                        navigateToPaymentConfirmationView = true
                     }
+                              .disabled(!viewModel.vignetteSelected)
                     
                 }
                 .padding(.padding16)
@@ -83,6 +85,11 @@ struct HighwayVignetteMainView: View {
             if let vehicle = viewModel.uiModel?.vehicle {
                 CountyVignetteViewAssembly.createView(vignetteResponse: viewModel.apiVignetteResponse,
                                                       vehicle: vehicle)
+            }
+        }
+        .navigationDestination(isPresented: $navigateToPaymentConfirmationView) {
+            if let purchaseItem = viewModel.purchaseItem {
+                PaymentConfirmationViewAssembly.createView(purchaseItem: purchaseItem)
             }
         }
     }

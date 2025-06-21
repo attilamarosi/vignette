@@ -22,15 +22,15 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
     // MARK: - Published Properties
     @Published var viewState: ViewState = .idle
     @Published var uiModel: HighwayVignetteUIModel?
+    @Published var vignetteSelected = false
     
     var showPopupSubject = PassthroughSubject<PopupModel, Never>()
     
+    private(set) var purchaseItem: VignettePurchaseItem?
+    private var apiVehicleResponse: VehicleResponse?
+    
     var apiVignetteResponse: VignetteResponse?
-    
-    var selectedVignette: VignetteModel? {
-        uiModel?.highwayVignettes.first(where: { $0.selected })
-    }
-    
+        
     // MARK: - Private Properties
     private let formatter: HighwayVignetteMainFormatter
     private let repository: GlobalRepository
@@ -56,6 +56,7 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
             uiModel = formatter.createUIModel(from: vehicle,
                                               vignetteResponse: vignettes)
             apiVignetteResponse = vignettes
+            apiVehicleResponse = vehicle
             
             viewState = .finished
             
@@ -79,6 +80,34 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
             vignettes[i].selected = (i == index)
         }
         
+        vignetteSelected = true
         uiModel?.highwayVignettes = vignettes
+        updatePurchaseItem()
+    }
+    
+    private func updatePurchaseItem() {
+        guard let vehicle = uiModel?.vehicle,
+              let vignettes = uiModel?.highwayVignettes,
+              let category = apiVignetteResponse?.payload.vehicleCategories.first,
+              let vignetteCategory = apiVignetteResponse?.payload.counties.first?.id,
+              let selectedVignetteModel = uiModel?.highwayVignettes.first(where: { $0.selected }),
+              let identifiedVignette = apiVignetteResponse?.payload.highwayVignettes.first(where: { $0.vignetteType.first == selectedVignetteModel.id }) else {
+            return
+        }
+      
+        let fee = identifiedVignette.trxFee
+        let cost = identifiedVignette.cost
+        
+        let orderItem = vignettes
+            .compactMap { vignette -> VignetteOrderItem? in
+                VignetteOrderItem(type: vignette.productName,
+                                  category: category.vignetteCategory,
+                                  cost: Double(cost),
+                                  vignetteCategory: vignetteCategory)
+            }
+
+        purchaseItem = formatter.updatePurchaseItem(with: orderItem,
+                                                    for: vehicle,
+                                                    fee: fee)
     }
 }
