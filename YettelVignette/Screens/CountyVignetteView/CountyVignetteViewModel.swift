@@ -29,23 +29,27 @@ class CountyVignetteViewModel: AsyncViewModel {
     // MARK: - Private Properties
     private let formatter: CountyVignetteFormatter
     
-    private var vignettes: VignetteResponse?
+    private let vehicle: Vehicle
+    private var vignetteResponse: VignetteResponse?
     
     // MARK: - Initialization
     init(formatter: CountyVignetteFormatter,
-        vignettes: VignetteResponse?) {
+         vehicle: Vehicle,
+         vignetteResponse: VignetteResponse?) {
         self.formatter = formatter
-        self.vignettes = vignettes
+        self.vehicle = vehicle
+        self.vignetteResponse = vignetteResponse
     }
     
     // MARK: - Public Methods
     
     @MainActor
     func handleOnAppear() async {
+        // We need to keep the selected items in case the user navigates back from payment confirmation screen
+        guard uiModel == nil else { return }
+        
         viewState = .loading
-        
-        uiModel = formatter.createUIModel(from: vignettes)
-        
+        uiModel = formatter.createUIModel(from: vignetteResponse)
         viewState = .finished
     }
     
@@ -55,9 +59,11 @@ class CountyVignetteViewModel: AsyncViewModel {
         vignettes[index].isSelected.toggle()
         uiModel?.counties = vignettes
         updateSelectedIds(at: index)
+        updatePurchaseItem()
         updateSum()
     }
     
+    // MARK: - Private Methods
     private func updateSelectedIds(at index: Int) {
         guard let vignettes = uiModel?.counties, vignettes.isNonempty else { return }
         
@@ -82,7 +88,28 @@ class CountyVignetteViewModel: AsyncViewModel {
         uiModel?.total = formatter.formatToHUF(total)
     }
     
-    private func createPurchaseItem() {
+    private func updatePurchaseItem() {
+        guard let vignettes = uiModel?.counties,
+              let category = vignetteResponse?.payload.vehicleCategories.first,
+              let fee = vignetteResponse?.payload.highwayVignettes.first(where: { $0.vehicleCategory == vehicle.type.rawValue })?.trxFee else {
+            return
+        }
+      
+        let orderItems = vignettes
+            .compactMap { vignette -> VignetteOrderItem? in
+                guard selectedIds.contains(vignette.id) else {
+                    return nil
+                }
+                
+                let item = VignetteOrderItem(type: vignette.name,
+                                             category: category.vignetteCategory,
+                                             cost: Double(vignette.price))
+                print("@@", item)
+                return item
+            }
         
+        purchaseItem = formatter.updatePurchaseItem(with: orderItems,
+                                                    for: vehicle,
+                                                    fee: fee)
     }
 }

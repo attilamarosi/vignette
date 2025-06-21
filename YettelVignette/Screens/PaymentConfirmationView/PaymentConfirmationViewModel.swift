@@ -40,6 +40,8 @@ class PaymentConfirmationViewModel: AsyncViewModel {
     
     @MainActor
     func createOrderSummary() {
+        viewState = .loading
+        uiModel = formatter.createUIModel(from: purchaseItem)
         viewState = .finished
     }
 }

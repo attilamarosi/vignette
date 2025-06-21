@@ -15,7 +15,8 @@ struct Mocks {
     }
     
     static var purchaseItem: VignettePurchaseItem {
-        VignettePurchaseItem(plateNumber: "ABC 123",
+        VignettePurchaseItem(fee: 200,
+                             plateNumber: "ABC 123",
                              vehicleCategory: .car,
                              vignette: [
                                 VignetteOrderItem(type: "Éves vármegyei",

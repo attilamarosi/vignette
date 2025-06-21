@@ -4,7 +4,7 @@ import SwiftUI
 
 struct HighwayVignetteMainView: View {
     
-    @ObservedObject var viewModel: HighwayVignetteMainViewModel
+    @StateObject var viewModel: HighwayVignetteMainViewModel
     @State private var navigateToCountyVignetteView = false
     
     var body: some View {
@@ -79,7 +79,10 @@ struct HighwayVignetteMainView: View {
         }
         // Navigation
         .navigationDestination(isPresented: $navigateToCountyVignetteView) {
-            CountyVignetteViewAssembly.createView(vignettes: viewModel.apiVignetteResponse)
+            if let vehicle = viewModel.uiModel?.vehicle {
+                CountyVignetteViewAssembly.createView(vignetteResponse: viewModel.apiVignetteResponse,
+                                                      vehicle: vehicle)
+            }
         }
     }
 }

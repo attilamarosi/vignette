@@ -4,7 +4,7 @@ import SwiftUI
 
 struct PaymentConfirmationView: View {
     
-    @ObservedObject var viewModel: PaymentConfirmationViewModel
+    @StateObject var viewModel: PaymentConfirmationViewModel
     
     var body: some View {
         AsyncContentView(viewModel: viewModel) {
@@ -53,6 +53,7 @@ struct PaymentConfirmationView: View {
                             ForEach(uiModel.orderItems, id: \.name) { item in
                                 VignetteOrderItemView(name: item.name, price: item.price)
                             }
+                            .padding(.horizontal, .padding16)
                             
                             HStack {
                                 Text("usage_fee")
@@ -61,6 +62,7 @@ struct PaymentConfirmationView: View {
                                 Text(uiModel.fee)
                                     .font(.paragraphSmall)
                             }
+                            .padding(.horizontal, .padding16)
                         }
                     }
                     
@@ -76,7 +78,7 @@ struct PaymentConfirmationView: View {
                             }
                             
                             HStack {
-                                Text("0 Ft")
+                                Text(viewModel.uiModel)
                                     .font(.headingExtraLarge)
                                 Spacer()
                             }

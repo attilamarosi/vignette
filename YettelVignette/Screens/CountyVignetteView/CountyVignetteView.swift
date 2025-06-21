@@ -4,7 +4,7 @@ import SwiftUI
 
 struct CountyVignetteView: View {
     
-    @ObservedObject var viewModel: CountyVignetteViewModel
+    @StateObject var viewModel: CountyVignetteViewModel
     @State private var navigateToPaymentConfirmation = false
     
     var body: some View {
@@ -84,11 +84,11 @@ struct CountyVignetteView: View {
                 PaymentConfirmationViewAssembly.createView(purchaseItem: purchaseItem)
             }
         }
-        
     }
 }
 
 // MARK: - Previews
 #Preview {
-    CountyVignetteViewAssembly.createView(vignettes: nil)
+    CountyVignetteViewAssembly.createView(vignetteResponse: nil,
+                                          vehicle: Mocks.vehicle)
 }

@@ -4,10 +4,12 @@ import SwiftUI
 
 struct CountyVignetteViewAssembly {
     
-    static func createView(vignettes: VignetteResponse?) -> some View {
+    static func createView(vignetteResponse: VignetteResponse?,
+                           vehicle: Vehicle) -> some View {
         let formatter = CountyVignetteFormatter()
         let viewModel = CountyVignetteViewModel(formatter: formatter,
-                                                vignettes: vignettes)
+                                                vehicle: vehicle,
+                                                vignetteResponse: vignetteResponse)
         
         return CountyVignetteView(viewModel: viewModel)
     }

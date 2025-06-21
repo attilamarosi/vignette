@@ -26,5 +26,14 @@ struct CountyVignetteFormatter: BaseFormatter {
         
         return CountyVignetteUIModel(counties: models)
     }
+    
+    func updatePurchaseItem(with vignette: [VignetteOrderItem],
+                            for vehicle: Vehicle,
+                            fee: Int) -> VignettePurchaseItem {
+        VignettePurchaseItem(fee: fee,
+                             plateNumber: vehicle.plateNumber,
+                             vehicleCategory: vehicle.type,
+                             vignette: vignette)
+    }
 
 }
