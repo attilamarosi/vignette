@@ -5,6 +5,7 @@ import Foundation
 protocol GlobalRepository {
     func fetchVignettes() async throws -> VignetteResponse
     func fetchUserVehicle() async throws -> VehicleResponse
+    func makeOrder(_ order: HighwayOrderRequest) async throws -> VignetteOrderResponse
 }
 
 struct GlobalRepositoryImpl: GlobalRepository, NetworkService {
@@ -15,5 +16,11 @@ struct GlobalRepositoryImpl: GlobalRepository, NetworkService {
     
     func fetchUserVehicle() async throws -> VehicleResponse {
         try await request(endpoint: .vehicle)
+    }
+    
+    func makeOrder(_ order: HighwayOrderRequest) async throws -> VignetteOrderResponse {
+        try await request(endpoint: .order,
+                          method: .post,
+                          body: order)
     }
 }

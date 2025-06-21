@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "hu",
   "strings" : {
+    "" : {
+
+    },
     "common_cancel" : {
       "extractionState" : "manual",
       "localizations" : {

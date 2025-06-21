@@ -29,7 +29,7 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
         uiModel?.highwayVignettes.first(where: { $0.selected })
     }
     
-    // MARK: - Dependencies
+    // MARK: - Private Properties
     private let formatter: HighwayVignetteMainFormatter
     private let repository: GlobalRepository
     

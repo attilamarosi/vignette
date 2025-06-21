@@ -21,6 +21,8 @@ class CountyVignetteViewModel: AsyncViewModel {
     @Published var viewState: ViewState = .idle
     @Published var uiModel: CountyVignetteUIModel?
     
+    @Published var selectedIds: Set<String> = []
+    
     var showPopupSubject = PassthroughSubject<PopupModel, Never>()
     
     // MARK: - Private Properties
@@ -50,10 +52,21 @@ class CountyVignetteViewModel: AsyncViewModel {
         guard var vignettes = uiModel?.counties else { return }
         vignettes[index].isSelected.toggle()
         uiModel?.counties = vignettes
+        updateSelectedIds(at: index)
         updateSum()
     }
     
-    func updateSum() {
+    private func updateSelectedIds(at index: Int) {
+        guard var vignettes = uiModel?.counties else { return }
+        
+        if vignettes[index].isSelected {
+            selectedIds.insert(vignettes[index].id)
+        } else {
+            selectedIds.remove(vignettes[index].id)
+        }
+    }
+    
+    private func updateSum() {
         guard let vignettes = uiModel?.counties else { return }
         
         var total = 0
