@@ -22,12 +22,14 @@ struct PaymentConfirmationFormatter: BaseFormatter {
         let total = calculateSum(amount: purchaseItem.fee, prices)
         
         let vignetteType = purchaseItem.vignette.first?.type
+        let vignetteCategory = purchaseItem.vignette.first?.vignetteCategory
         
         let model = PaymentConfirmationUIModel(orderItems: orderItems,
                                                fee: formattedFee,
                                                productName: getProductName(for: vignetteType),
                                                platenumber: purchaseItem.plateNumber,
-                                               summary: formatToHUF(total))
+                                               summary: formatToHUF(total),
+                                               vignetteCategory: getProductName(for: vignetteCategory))
         return model
     }
     
@@ -37,6 +39,11 @@ struct PaymentConfirmationFormatter: BaseFormatter {
     
     private func getProductName(for value: String?) -> String? {
         guard let value else { return nil }
-        return VignetteType(rawValue: value)?.localizedString 
+        
+        if value.contains("YEAR") {
+            return "vignette-year-nationwide"
+        } else {
+            return VignetteType(rawValue: value)?.localizedString
+        }
     }
 }

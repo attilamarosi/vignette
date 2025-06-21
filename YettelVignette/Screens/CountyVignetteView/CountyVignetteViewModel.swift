@@ -91,9 +91,13 @@ class CountyVignetteViewModel: AsyncViewModel {
     private func updatePurchaseItem() {
         guard let vignettes = uiModel?.counties,
               let category = vignetteResponse?.payload.vehicleCategories.first,
+              let vignetteCategory = vignetteResponse?.payload.counties.first?.id,
               let fee = vignetteResponse?.payload.highwayVignettes.first(where: { $0.vehicleCategory == vehicle.type.rawValue })?.trxFee else {
             return
         }
+        
+        // As all the vignettes IDs containing 'YEAR', we can identify the same product category
+        
       
         let orderItems = vignettes
             .compactMap { vignette -> VignetteOrderItem? in
@@ -103,8 +107,8 @@ class CountyVignetteViewModel: AsyncViewModel {
                 
                 let item = VignetteOrderItem(type: vignette.name,
                                              category: category.vignetteCategory,
-                                             cost: Double(vignette.price))
-                print("@@", item)
+                                             cost: Double(vignette.price),
+                                             vignetteCategory: vignetteCategory)
                 return item
             }
         

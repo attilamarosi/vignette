@@ -4,14 +4,16 @@ import Combine
 
 /// Represents the UI model presented on the screen
 struct HighwayVignetteUIModel {
-    var vehicle: Vehicle
+    let vehicle: Vehicle
     var highwayVignettes: [VignetteModel]
 }
 
 struct VignetteModel: Identifiable {
-    var id: String
-    var productName: String
-    var price: String
+    let id: String
+    let productName: String
+    let detailedName: String
+    let price: String
+    let vignetteType: String?
     var selected: Bool
 }
 

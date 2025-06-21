@@ -21,7 +21,8 @@ struct Mocks {
                              vignette: [
                                 VignetteOrderItem(type: "Éves vármegyei",
                                                   category: "D1",
-                                                  cost: 5650)
+                                                  cost: 5650,
+                                                  vignetteCategory: "YEAR_21")
                              ])
     }
 }

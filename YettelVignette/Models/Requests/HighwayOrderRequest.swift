@@ -11,4 +11,5 @@ struct VignetteOrderItem: Codable {
     let type: String
     let category: String
     let cost: Double
+    let vignetteCategory: String
 }

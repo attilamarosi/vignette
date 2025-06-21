@@ -24,14 +24,18 @@ struct HighwayVignetteMainFormatter: BaseFormatter {
         let highwayVignettes = availableVignettes
             .compactMap { vignette -> VignetteModel in
                 var productName = ""
+                var detailedName = ""
+                
                 if let vignetteType = vignette.vignetteType.first {
-                    let detailedName = String(localized: "vignette-\(vignetteType.lowercased())")
-                    productName = "\(vehicle.vignetteType ?? "") - \(detailedName)"
+                    detailedName = String(localized: "vignette-\(vignetteType.lowercased())")
+                    productName = "\(vehicle.vignetteType ?? "")"
                 }
                 
                 return VignetteModel(id: vignette.vignetteType.joined(separator: "-"),
                                      productName: productName,
+                                     detailedName: detailedName,
                                      price: formatToHUF(vignette.sum),
+                                     vignetteType: vignette.vignetteType.first,
                                      selected: false)
             }
         

@@ -41,6 +41,7 @@ struct HighwayVignetteMainView: View {
                                 
                                 SelectableListItemView(selected: isSelected,
                                                        title: vignette.productName,
+                                                       detailedName: vignette.detailedName,
                                                        price: vignette.price)
                             }
                             

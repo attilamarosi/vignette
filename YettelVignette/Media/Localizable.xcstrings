@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "hu",
   "strings" : {
+    " - " : {
+
+    },
     "amount_to_be_paid" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -95,33 +98,11 @@
         }
       }
     },
-    "Éves vármegyei" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yearly county vignette"
-          }
-        }
-      }
-    },
     "go" : {
 
     },
     "Key" : {
       "extractionState" : "manual"
-    },
-    "Matrica típusa" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vignette type"
-          }
-        }
-      }
     },
     "nation-wide-highway-vignettes" : {
       "extractionState" : "manual",
@@ -315,14 +296,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "1 week"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "heti"
+            "value" : "heti (10 napos)"
           }
         }
       }
@@ -340,6 +321,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "éves"
+          }
+        }
+      }
+    },
+    "vignette-year-nationwide" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yearly Nation-wide"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Éves vármegyei"
           }
         }
       }

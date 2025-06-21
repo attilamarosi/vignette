@@ -8,6 +8,7 @@ struct PaymentConfirmationUIModel {
     let productName: String?
     let platenumber: String
     let summary: String
+    let vignetteCategory: String?
 }
 
 struct VignetteOrderItemUIModel {

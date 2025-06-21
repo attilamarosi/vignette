@@ -38,8 +38,8 @@ struct PaymentConfirmationView: View {
                         HStack {
                             Text("vignette_type")
                             Spacer()
-                            if let productName = viewModel.uiModel?.productName {
-                                Text(productName)
+                            if let vignetteCategory = viewModel.uiModel?.vignetteCategory {
+                                Text(LocalizedStringKey(vignetteCategory))
                             }
                         }
                     }

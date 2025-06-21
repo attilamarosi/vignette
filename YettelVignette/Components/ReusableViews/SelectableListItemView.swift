@@ -6,6 +6,7 @@ struct SelectableListItemView: View {
     
     @Binding var selected: Bool
     var title: String
+    var detailedName: String
     var price: String
     
     var body: some View {
@@ -26,11 +27,21 @@ struct SelectableListItemView: View {
                     )
                     .overlay {
                         HStack {
+                            // Radio button
                             YettelRadioButton(selected: $selected)
                                 .padding(.trailing, .padding16)
-                            Text(title)
-                                .font(.paragraphMain)
+                            
+                            // Product name
+                            Group {
+                                Text(title)
+                                Text(" - ")
+                                Text(LocalizedStringKey(detailedName))
+                            }
+                            .font(.paragraphMain)
+                            
                             Spacer()
+                            
+                            // Product price
                             Text(price)
                                 .font(.headingMain)
                         }
@@ -53,7 +64,8 @@ private struct SelectableListItemViewWrapper: View {
     
     var body: some View {
         SelectableListItemView(selected: $selected,
-                               title: "D1 - heti (10 napos)",
+                               title: "D1",
+                               detailedName: "heti (10 napos)",
                                price: "6 400 Ft")
     }
     
