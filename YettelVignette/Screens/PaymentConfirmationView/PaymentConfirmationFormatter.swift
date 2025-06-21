@@ -17,9 +17,26 @@ struct PaymentConfirmationFormatter: BaseFormatter {
         
         let formattedFee = formatToHUF(purchaseItem.fee)
         
+        let vignettePrices = purchaseItem.vignette.compactMap({ $0.cost }).reduce(0, +)
+        let prices = Int(vignettePrices)
+        let total = calculateSum(amount: purchaseItem.fee, prices)
+        
+        let vignetteType = purchaseItem.vignette.first?.type
+        
         let model = PaymentConfirmationUIModel(orderItems: orderItems,
                                                fee: formattedFee,
-                                               platenumber: purchaseItem.plateNumber)
+                                               productName: getProductName(for: vignetteType),
+                                               platenumber: purchaseItem.plateNumber,
+                                               summary: formatToHUF(total))
         return model
+    }
+    
+    private func calculateSum(amount: Int...) -> Int {
+        amount.reduce(0, +)
+    }
+    
+    private func getProductName(for value: String?) -> String? {
+        guard let value else { return nil }
+        return VignetteType(rawValue: value)?.localizedString 
     }
 }

@@ -5,7 +5,9 @@ import Combine
 struct PaymentConfirmationUIModel {
     let orderItems: [VignetteOrderItemUIModel]
     let fee: String
+    let productName: String?
     let platenumber: String
+    let summary: String
 }
 
 struct VignetteOrderItemUIModel {

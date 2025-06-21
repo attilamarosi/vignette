@@ -7,48 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D81620E4-5AA9-4142-8694-FA93B064912C"
+            uuid = "1C6412D7-8F34-4955-B2AF-B41726CBA146"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YettelVignette/Screens/CountyVignetteView/CountyVignetteViewModel.swift"
+            filePath = "YettelVignette/Screens/PaymentConfirmationView/PaymentConfirmationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "updatePurchaseItem()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B1224965-A10A-44FE-A54F-12592E5E71D8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YettelVignette/Screens/CountyVignetteView/CountyVignetteViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "updatePurchaseItem()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9522FB23-5AC6-4F49-A324-9530BE6E5B09"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YettelVignette/Screens/CountyVignetteView/CountyVignetteViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "updatePurchaseItem()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "init(formatter:repository:purchaseItem:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

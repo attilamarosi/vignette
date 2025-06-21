@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "hu",
   "strings" : {
-    "0 Ft" : {
-
-    },
     "amount_to_be_paid" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -99,22 +96,12 @@
       }
     },
     "Éves vármegyei" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yearly county vignette"
-          }
-        }
-      }
-    },
-    "Fizetendő összeg" : {
       "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Amount to be paid"
+            "value" : "Yearly county vignette"
           }
         }
       }
@@ -126,6 +113,7 @@
       "extractionState" : "manual"
     },
     "Matrica típusa" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -170,7 +158,20 @@
       }
     },
     "platenumber" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platenumber"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendszám"
+          }
+        }
+      }
     },
     "purchase_title" : {
       "extractionState" : "manual",
@@ -221,17 +222,6 @@
         }
       }
     },
-    "Rendszám" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Platenumber"
-          }
-        }
-      }
-    },
     "usage_fee" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -245,6 +235,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rendszerhasználati díj"
+          }
+        }
+      }
+    },
+    "vignette_type" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vignette’s type"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Matrica típusa"
           }
         }
       }
@@ -342,7 +349,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "0 Ft"
           }
         },

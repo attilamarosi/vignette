@@ -36,9 +36,11 @@ struct PaymentConfirmationView: View {
                         Spacer(minLength: .padding8)
                         
                         HStack {
-                            Text("Matrica típusa")
+                            Text("vignette_type")
                             Spacer()
-                            Text("Éves vármegyei")
+                            if let productName = viewModel.uiModel?.productName {
+                                Text(productName)
+                            }
                         }
                     }
                     .padding(.horizontal, .padding16)
@@ -78,8 +80,10 @@ struct PaymentConfirmationView: View {
                             }
                             
                             HStack {
-                                Text(viewModel.uiModel)
-                                    .font(.headingExtraLarge)
+                                if let summary = viewModel.uiModel?.summary {
+                                    Text(summary)
+                                        .font(.headingExtraLarge)
+                                }
                                 Spacer()
                             }
                         }
@@ -111,4 +115,5 @@ struct PaymentConfirmationView: View {
 // MARK: - Previews
 #Preview {
     PaymentConfirmationViewAssembly.createView(purchaseItem: Mocks.purchaseItem)
+        .environment(\.locale, .init(identifier: "hu_HU"))
 }
