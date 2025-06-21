@@ -38,6 +38,7 @@ struct PaymentConfirmationView: View {
                         HStack {
                             Text("vignette_type")
                             Spacer()
+                            // For example "Éves vármegyei"
                             if let vignetteCategory = viewModel.uiModel?.vignetteCategory {
                                 Text(LocalizedStringKey(vignetteCategory))
                             }
@@ -53,10 +54,12 @@ struct PaymentConfirmationView: View {
                     VStack {
                         if let uiModel = viewModel.uiModel {
                             ForEach(uiModel.orderItems, id: \.name) { item in
-                                VignetteOrderItemView(name: item.name, price: item.price)
+                                VignetteOrderItemView(name: item.name,
+                                                      price: item.price)
                             }
                             .padding(.horizontal, .padding16)
                             
+                            // Fee
                             HStack {
                                 Text("usage_fee")
                                     .font(.paragraphSmall)
@@ -92,7 +95,9 @@ struct PaymentConfirmationView: View {
                         // Pay button
                         CTAButton(style: .primary,
                                   title: String(localized:"common_next")) {
-                            
+                            Task {
+                                await viewModel.processPayment()
+                            }
                         }
                         
                         // Cancel button
@@ -108,6 +113,9 @@ struct PaymentConfirmationView: View {
         .background(.colorWhite)
         .task {
             viewModel.createOrderSummary()
+        }
+        .navigationDestination(isPresented: $viewModel.navigateToPaymentFinishScreen) {
+            PaymentFinishedViewAssembly.createView()
         }
     }
 }

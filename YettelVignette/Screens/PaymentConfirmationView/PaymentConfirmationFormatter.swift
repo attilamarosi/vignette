@@ -40,7 +40,8 @@ struct PaymentConfirmationFormatter: BaseFormatter {
     private func getProductName(for value: String?) -> String? {
         guard let value else { return nil }
         
-        if value.contains("YEAR") {
+        // As we don't get hungarian names for day, week, month etc vignettes, a hardcoded localalized string will be displayed
+        if value.contains("YEAR-") {
             return "vignette-year-nationwide"
         } else {
             return VignetteType(rawValue: value)?.localizedString

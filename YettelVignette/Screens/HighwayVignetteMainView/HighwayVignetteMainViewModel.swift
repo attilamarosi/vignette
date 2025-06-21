@@ -87,26 +87,29 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
     
     private func updatePurchaseItem() {
         guard let vehicle = uiModel?.vehicle,
-              let vignettes = uiModel?.highwayVignettes,
-              let category = apiVignetteResponse?.payload.vehicleCategories.first,
-              let vignetteCategory = apiVignetteResponse?.payload.counties.first?.id,
+              let vehicleVignetteType = vehicle.vignetteType,
               let selectedVignetteModel = uiModel?.highwayVignettes.first(where: { $0.selected }),
-              let identifiedVignette = apiVignetteResponse?.payload.highwayVignettes.first(where: { $0.vignetteType.first == selectedVignetteModel.id }) else {
+              let selectedVignetteType = selectedVignetteModel.vignetteType else {
             return
         }
-      
-        let fee = identifiedVignette.trxFee
-        let cost = identifiedVignette.cost
         
-        let orderItem = vignettes
-            .compactMap { vignette -> VignetteOrderItem? in
-                VignetteOrderItem(type: vignette.productName,
-                                  category: category.vignetteCategory,
-                                  cost: Double(cost),
-                                  vignetteCategory: vignetteCategory)
-            }
-
-        purchaseItem = formatter.updatePurchaseItem(with: orderItem,
+        let vignettePayload: HighwayVignette? = apiVignetteResponse?.payload.highwayVignettes
+            .filter { $0.vignetteType.contains(selectedVignetteType) }
+            .first
+            
+        guard let vignettePayload else {
+            return
+        }
+        
+        let fee = vignettePayload.trxFee
+        let cost = vignettePayload.cost
+      
+        let orderItem = VignetteOrderItem(type: selectedVignetteModel.detailedName,
+                                          category: selectedVignetteModel.productName,
+                                          cost: Double(cost),
+                                          vignetteCategory: selectedVignetteType)
+        
+        purchaseItem = formatter.updatePurchaseItem(with: [orderItem],
                                                     for: vehicle,
                                                     fee: fee)
     }

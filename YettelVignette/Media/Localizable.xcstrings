@@ -72,6 +72,23 @@
         }
       }
     },
+    "common_ok_long" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendben"
+          }
+        }
+      }
+    },
     "E-matrica" : {
       "localizations" : {
         "en" : {
@@ -134,6 +151,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vásárlás megerősítése"
+          }
+        }
+      }
+    },
+    "payment_success_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "You have successfully paid for the sticker!"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A matricákat sikeresen kifizetted!"
           }
         }
       }
