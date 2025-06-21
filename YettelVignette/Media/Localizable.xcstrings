@@ -1,8 +1,25 @@
 {
   "sourceLanguage" : "hu",
   "strings" : {
-    "" : {
+    "0 Ft" : {
 
+    },
+    "amount_to_be_paid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amount to be paid"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fizetendő összeg"
+          }
+        }
+      }
     },
     "common_cancel" : {
       "extractionState" : "manual",
@@ -56,7 +73,14 @@
       }
     },
     "E-matrica" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Vignette"
+          }
+        }
+      }
     },
     "error_main_title" : {
       "localizations" : {
@@ -74,11 +98,42 @@
         }
       }
     },
+    "Éves vármegyei" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yearly county vignette"
+          }
+        }
+      }
+    },
     "Fizetendő összeg" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amount to be paid"
+          }
+        }
+      }
     },
     "go" : {
 
+    },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "Matrica típusa" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vignette type"
+          }
+        }
+      }
     },
     "nation-wide-highway-vignettes" : {
       "extractionState" : "manual",
@@ -96,6 +151,26 @@
           }
         }
       }
+    },
+    "payment_confirmation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orders"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vásárlás megerősítése"
+          }
+        }
+      }
+    },
+    "platenumber" : {
+
     },
     "purchase_title" : {
       "extractionState" : "manual",
@@ -146,6 +221,34 @@
         }
       }
     },
+    "Rendszám" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platenumber"
+          }
+        }
+      }
+    },
+    "usage_fee" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usage fee"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendszerhasználati díj"
+          }
+        }
+      }
+    },
     "vignette-%@" : {
 
     },
@@ -188,7 +291,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Vignettes - 1 year"
           }
         },
@@ -230,6 +333,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "éves"
+          }
+        }
+      }
+    },
+    "zero_huf" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "0 Ft"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "0 Ft"
           }
         }
       }

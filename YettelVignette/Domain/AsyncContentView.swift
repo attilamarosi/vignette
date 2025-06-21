@@ -73,10 +73,7 @@ struct AsyncContentView<ViewModel: AsyncViewModel, Content: View>: View {
             case .loading:
                 YettelProgressView()
             case .finished:
-                ZStack {
-                    Color.colorGrey.edgesIgnoringSafeArea(.all)
-                    content()
-                }
+                content()
             case .error(let model):
                 ErrorView(model: model)
             }

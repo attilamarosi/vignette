@@ -4,11 +4,12 @@ import SwiftUI
 
 struct PaymentConfirmationViewAssembly {
     
-    static func createView() -> some View {
+    static func createView(purchaseItem: VignettePurchaseItem) -> some View {
         let formatter = PaymentConfirmationFormatter()
         let repository = GlobalRepositoryImpl()
         let viewModel = PaymentConfirmationViewModel(formatter: formatter,
-                                                     repository: repository)
+                                                     repository: repository,
+                                                     purchaseItem: purchaseItem)
         
         return PaymentConfirmationView(viewModel: viewModel)
     }

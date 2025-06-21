@@ -22,6 +22,7 @@ class CountyVignetteViewModel: AsyncViewModel {
     @Published var uiModel: CountyVignetteUIModel?
     
     @Published var selectedIds: Set<String> = []
+    @Published var purchaseItem: VignettePurchaseItem?
     
     var showPopupSubject = PassthroughSubject<PopupModel, Never>()
     
@@ -50,6 +51,7 @@ class CountyVignetteViewModel: AsyncViewModel {
     
     func selectVignette(at index: Int) {
         guard var vignettes = uiModel?.counties else { return }
+        
         vignettes[index].isSelected.toggle()
         uiModel?.counties = vignettes
         updateSelectedIds(at: index)
@@ -57,7 +59,7 @@ class CountyVignetteViewModel: AsyncViewModel {
     }
     
     private func updateSelectedIds(at index: Int) {
-        guard var vignettes = uiModel?.counties else { return }
+        guard let vignettes = uiModel?.counties, vignettes.isNonempty else { return }
         
         if vignettes[index].isSelected {
             selectedIds.insert(vignettes[index].id)
@@ -78,5 +80,9 @@ class CountyVignetteViewModel: AsyncViewModel {
         }
         
         uiModel?.total = formatter.formatToHUF(total)
+    }
+    
+    private func createPurchaseItem() {
+        
     }
 }

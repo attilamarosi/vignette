@@ -72,6 +72,7 @@ struct HighwayVignetteMainView: View {
             .background(.colorGrey)
             .padding(.padding16)
         }
+        .background(.colorGrey)
         // Handle on appear
         .task {
             await viewModel.handleOnAppear()

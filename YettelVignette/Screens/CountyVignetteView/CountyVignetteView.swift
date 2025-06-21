@@ -5,6 +5,7 @@ import SwiftUI
 struct CountyVignetteView: View {
     
     @ObservedObject var viewModel: CountyVignetteViewModel
+    @State private var navigateToPaymentConfirmation = false
     
     var body: some View {
         AsyncContentView(viewModel: viewModel) {
@@ -50,13 +51,13 @@ struct CountyVignetteView: View {
                         
                         Group {
                             HStack {
-                                Text("Fizetendő összeg")
+                                Text("amount_to_be_paid")
                                     .font(.headingSmall)
                                 Spacer()
                             }
                             
                             HStack {
-                                Text(viewModel.uiModel?.total ?? "0 Ft")
+                                Text(viewModel.uiModel?.total ?? String(localized:"zero_huf"))
                                     .font(.headingExtraLarge)
                                 Spacer()
                             }
@@ -65,8 +66,10 @@ struct CountyVignetteView: View {
                         
                         CTAButton(style: .primary,
                                   title: String(localized:"common_next")) {
-                            
+                            navigateToPaymentConfirmation = true
                         }
+                                  .disabled(viewModel.selectedIds.isEmpty)
+                
                     }
                     .padding(.horizontal, .padding16)
                 }
@@ -76,6 +79,12 @@ struct CountyVignetteView: View {
         .task {
             await viewModel.handleOnAppear()
         }
+        .navigationDestination(isPresented: $navigateToPaymentConfirmation) {
+            if let purchaseItem = viewModel.purchaseItem {
+                PaymentConfirmationViewAssembly.createView(purchaseItem: purchaseItem)
+            }
+        }
+        
     }
 }
 

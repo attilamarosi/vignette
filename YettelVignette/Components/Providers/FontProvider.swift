@@ -55,6 +55,11 @@ public extension Font {
                    type: .oswaldLight)
     }
     
+    static var paragraphSmallLight: Font {
+        yettelFont(size: .small,
+                   type: .oswaldLight)
+    }
+    
     static var paragraphMain: Font {
         yettelFont(size: .medium,
                    type: .oswaldRegular)

@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct HighwayVignetteMainFormatter {
+struct HighwayVignetteMainFormatter: BaseFormatter {
     
     func createUIModel(from vehicleResponse: VehicleResponse,
                        vignetteResponse: VignetteResponse) -> HighwayVignetteUIModel? {
@@ -46,15 +46,4 @@ struct HighwayVignetteMainFormatter {
             .replacingOccurrences(of: "[^A-Z0-9 ]+", with: "", options: .regularExpression)
     }
     
-    private func formatToHUF(_ amount: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.alwaysShowsDecimalSeparator = false
-        formatter.groupingSeparator = " "
-        formatter.maximumFractionDigits = 0
-        formatter.minimumFractionDigits = 0
-        formatter.locale = Locale(identifier: "hu_HU")
-        
-        return formatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
-    }
 }

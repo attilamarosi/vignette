@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct CountyVignetteFormatter {
+struct CountyVignetteFormatter: BaseFormatter {
     func createUIModel(from vignettes: VignetteResponse?) -> CountyVignetteUIModel? {
         guard let vignettes else {
             return nil
@@ -26,16 +26,5 @@ struct CountyVignetteFormatter {
         
         return CountyVignetteUIModel(counties: models)
     }
-    
-    func formatToHUF(_ amount: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.alwaysShowsDecimalSeparator = false
-        formatter.groupingSeparator = " "
-        formatter.maximumFractionDigits = 0
-        formatter.minimumFractionDigits = 0
-        formatter.locale = Locale(identifier: "hu_HU")
-        
-        return formatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
-    }
+
 }
