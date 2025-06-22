@@ -24,6 +24,7 @@ class RootViewRouter {
     }
 }
 
+// MARK: - View assembly
 extension RootViewRouter: Routable {
     func makeView() -> AnyView {
         let viewModel = RootViewModel(router: self)
@@ -32,6 +33,7 @@ extension RootViewRouter: Routable {
     }
 }
 
+// MARK: - Hashing
 extension RootViewRouter {
     static func == (lhs: RootViewRouter, rhs: RootViewRouter) -> Bool {
         lhs.id == rhs.id
@@ -40,4 +42,10 @@ extension RootViewRouter {
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)
     }
+}
+
+// MARK: - Mocking for preview
+extension RootViewRouter {
+    static let mock: RootViewRouter = RootViewRouter(rootCordinator: AppRouter(),
+                                                     id: UUID())
 }

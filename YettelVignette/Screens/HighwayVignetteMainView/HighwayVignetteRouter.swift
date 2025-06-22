@@ -17,8 +17,8 @@ class HighwayVignetteRouter {
     }
 }
 
+// MARK: - View assembly
 extension HighwayVignetteRouter: Routable {
-    
     func makeView() -> AnyView {
         let formatter = HighwayVignetteFormatter()
         let repository = GlobalRepositoryImpl()
@@ -48,6 +48,7 @@ extension HighwayVignetteRouter: Routable {
     }
 }
 
+// MARK: - Hashing
 extension HighwayVignetteRouter {
     static func == (lhs: HighwayVignetteRouter, rhs: HighwayVignetteRouter) -> Bool {
         lhs.id == rhs.id
@@ -56,4 +57,10 @@ extension HighwayVignetteRouter {
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)
     }
+}
+
+// MARK: - Mocking for preview
+extension HighwayVignetteRouter {
+    static let mock: HighwayVignetteRouter = HighwayVignetteRouter(rootCordinator: AppRouter(),
+                                                                   id: UUID())
 }

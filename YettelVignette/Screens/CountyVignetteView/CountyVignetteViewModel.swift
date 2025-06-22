@@ -28,15 +28,17 @@ class CountyVignetteViewModel: AsyncViewModel {
     
     // MARK: - Private Properties
     private let formatter: CountyVignetteFormatter
-    
+    private let router: CountyVignetteRouter
     private let vehicle: Vehicle
     private var vignetteResponse: VignetteResponse?
     
     // MARK: - Initialization
     init(formatter: CountyVignetteFormatter,
+         router: CountyVignetteRouter,
          vehicle: Vehicle,
          vignetteResponse: VignetteResponse?) {
         self.formatter = formatter
+        self.router = router
         self.vehicle = vehicle
         self.vignetteResponse = vignetteResponse
     }
@@ -115,5 +117,14 @@ class CountyVignetteViewModel: AsyncViewModel {
         purchaseItem = formatter.updatePurchaseItem(with: orderItems,
                                                     for: vehicle,
                                                     fee: fee)
+    }
+    
+    // MARK: - Routing
+    func navigateToPaymentConfirmation() {
+        guard let purchaseItem else {
+            return
+        }
+        
+        router.navigateToPaymentConfirmation(purchaseItem: purchaseItem)
     }
 }

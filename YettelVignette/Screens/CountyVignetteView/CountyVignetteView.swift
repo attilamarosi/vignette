@@ -5,7 +5,6 @@ import SwiftUI
 struct CountyVignetteView: View {
     
     @StateObject var viewModel: CountyVignetteViewModel
-    @State private var navigateToPaymentConfirmation = false
     
     var body: some View {
         AsyncContentView(viewModel: viewModel) {
@@ -66,7 +65,7 @@ struct CountyVignetteView: View {
                         
                         CTAButton(style: .primary,
                                   title: String(localized:"common_next")) {
-                            navigateToPaymentConfirmation = true
+                            viewModel.navigateToPaymentConfirmation()
                         }
                                   .disabled(viewModel.selectedIds.isEmpty)
                 
@@ -79,16 +78,11 @@ struct CountyVignetteView: View {
         .task {
             await viewModel.handleOnAppear()
         }
-        .navigationDestination(isPresented: $navigateToPaymentConfirmation) {
-            if let purchaseItem = viewModel.purchaseItem {
-                PaymentConfirmationViewAssembly.createView(purchaseItem: purchaseItem)
-            }
-        }
     }
 }
 
 // MARK: - Previews
-#Preview {
-    CountyVignetteViewAssembly.createView(vignetteResponse: nil,
-                                          vehicle: Mocks.vehicle)
-}
+//#Preview {
+//    CountyVignetteViewAssembly.createView(vignetteResponse: nil,
+//                                          vehicle: Mocks.vehicle)
+//}

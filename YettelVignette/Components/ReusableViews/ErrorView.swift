@@ -62,6 +62,7 @@ struct ErrorView: View {
                 opacity = 1
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

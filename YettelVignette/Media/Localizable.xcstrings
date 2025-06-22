@@ -2,7 +2,20 @@
   "sourceLanguage" : "hu",
   "strings" : {
     " - " : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-"
+          }
+        }
+      }
     },
     "amount_to_be_paid" : {
       "extractionState" : "manual",
@@ -96,6 +109,12 @@
             "state" : "translated",
             "value" : "E-Vignette"
           }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-matrica"
+          }
         }
       }
     },
@@ -154,7 +173,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "You have successfully paid for the sticker!"
           }
         },
@@ -270,7 +289,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Vignette’s type"
           }
         },
@@ -283,7 +302,20 @@
       }
     },
     "vignette-%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vignette-%@"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vignette-%@"
+          }
+        }
+      }
     },
     "vignette-day" : {
       "extractionState" : "manual",
@@ -341,7 +373,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "1 week"
           }
         },
@@ -383,6 +415,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Éves vármegyei"
+          }
+        }
+      }
+    },
+    "Yettel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yettel"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yettel"
           }
         }
       }

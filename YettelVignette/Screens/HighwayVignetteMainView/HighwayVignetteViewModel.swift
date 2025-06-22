@@ -73,7 +73,7 @@ class HighwayVignetteViewModel: AsyncViewModel {
             
             viewState = .error(errorModel)
         } catch {
-            // TODO: Handle errors
+            // Handle errors
         }
     }
     

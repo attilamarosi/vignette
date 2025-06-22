@@ -103,7 +103,7 @@ struct PaymentConfirmationView: View {
                         // Cancel button
                         CTAButton(style: .secondary,
                                   title: String(localized:"common_cancel")) {
-                            
+                            viewModel.navigateBack()
                         }
                     }
                     .padding(.horizontal, .padding16)
@@ -114,14 +114,5 @@ struct PaymentConfirmationView: View {
         .task {
             viewModel.createOrderSummary()
         }
-        .navigationDestination(isPresented: $viewModel.navigateToPaymentFinishScreen) {
-            PaymentFinishedViewAssembly.createView()
-        }
     }
-}
-
-// MARK: - Previews
-#Preview {
-    PaymentConfirmationViewAssembly.createView(purchaseItem: Mocks.purchaseItem)
-        .environment(\.locale, .init(identifier: "hu_HU"))
 }

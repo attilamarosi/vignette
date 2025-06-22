@@ -27,14 +27,26 @@ class PaymentConfirmationRouter {
                                            id: UUID())
         rootCordinator.push(router)
     }
+    
+    func navigateToPaymentFinished() {
+        let router = PaymentFinishedRouter(rootCordinator: rootCordinator,
+                                           id: UUID())
+        rootCordinator.push(router)
+    }
+    
+    func navigateBack() {
+        rootCordinator.popLast()
+    }
 }
 
+// MARK: - View assembly
 extension PaymentConfirmationRouter: Routable {
     func makeView() -> AnyView {
         let formatter = PaymentConfirmationFormatter()
         let repository = GlobalRepositoryImpl()
         let viewModel = PaymentConfirmationViewModel(formatter: formatter,
                                                      repository: repository,
+                                                     router: self,
                                                      purchaseItem: purchaseItem)
         let view = PaymentConfirmationView(viewModel: viewModel)
         
@@ -42,6 +54,7 @@ extension PaymentConfirmationRouter: Routable {
     }
 }
 
+// MARK: - Hashing
 extension PaymentConfirmationRouter {
     static func == (lhs: PaymentConfirmationRouter, rhs: PaymentConfirmationRouter) -> Bool {
         lhs.id == rhs.id
@@ -50,4 +63,11 @@ extension PaymentConfirmationRouter {
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)
     }
+}
+
+// MARK: - Mocking for preview
+extension PaymentConfirmationRouter {
+    static let mock: PaymentConfirmationRouter = PaymentConfirmationRouter(rootCordinator: AppRouter(),
+                                                                           id: UUID(),
+                                                                           purchaseItem: Mocks.purchaseItem)
 }

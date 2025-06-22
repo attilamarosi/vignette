@@ -21,9 +21,10 @@ struct RootView: View {
         .task {
             viewModel.handleOnAppear()
         }
+        .navigationTitle("Yettel")
     }
 }
 
 #Preview {
-    
+    RootView(viewModel: RootViewModel(router: .mock))
 }

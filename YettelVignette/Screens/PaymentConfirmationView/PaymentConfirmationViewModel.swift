@@ -22,22 +22,23 @@ class PaymentConfirmationViewModel: AsyncViewModel {
     @Published var viewState: ViewState = .idle
     @Published var uiModel: PaymentConfirmationUIModel?
     
-    @Published var navigateToPaymentFinishScreen = false
-    
     var showPopupSubject = PassthroughSubject<PopupModel, Never>()
     
     // MARK: - Private Properties
     private let formatter: PaymentConfirmationFormatter
     private let repository: GlobalRepository
+    private let router: PaymentConfirmationRouter
     
     private let purchaseItem: VignettePurchaseItem
     
     // MARK: - Initialization
     init(formatter: PaymentConfirmationFormatter,
          repository: GlobalRepository,
+         router: PaymentConfirmationRouter,
          purchaseItem: VignettePurchaseItem) {
         self.formatter = formatter
         self.repository = repository
+        self.router = router
         self.purchaseItem = purchaseItem
     }
     
@@ -60,9 +61,9 @@ class PaymentConfirmationViewModel: AsyncViewModel {
             let response = try await repository.makeOrder(request)
             viewState = .finished
             
-            // Basic validation
+            // Basic validation only for demonstration purposes
             if let statusCode = response.statusCode, statusCode.lowercased() == "ok" {
-                navigateToPaymentFinishScreen = true
+                router.navigateToPaymentFinished()
             } else {
                 // Handle errors
             }
@@ -81,5 +82,10 @@ class PaymentConfirmationViewModel: AsyncViewModel {
             
             viewState = .error(errorModel)
         }
+    }
+    
+    // MARK: - Routing
+    func navigateBack() {
+        router.navigateBack()
     }
 }

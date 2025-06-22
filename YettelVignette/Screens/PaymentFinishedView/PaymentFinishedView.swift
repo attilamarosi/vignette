@@ -32,7 +32,7 @@ struct PaymentFinishedView: View {
                     // Button
                     CTAButton(style: .primary,
                               title: String(localized: "common_ok_long")) {
-                        
+                        viewModel.navigateBackToRoot()
                     }
                 }
                 .padding(.padding16)
@@ -41,11 +41,11 @@ struct PaymentFinishedView: View {
         .task {
             viewModel.handleOnAppear()
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 // MARK: - Previews
 #Preview {
-    PaymentFinishedViewAssembly.createView()
-        .environment(\.locale, .init(identifier: "hu_HU"))
+    PaymentFinishedView(viewModel: PaymentFinishedViewModel(router: .mock))
 }
