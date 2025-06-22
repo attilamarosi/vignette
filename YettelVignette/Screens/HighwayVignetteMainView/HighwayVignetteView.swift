@@ -82,7 +82,7 @@ struct HighwayVignetteView: View {
 }
 
 // MARK: - Previews
-//#Preview {
-//    HighwayVignetteViewAssembly.createView()
-//        .environment(\.locale, .init(identifier: "hu_HU"))
-//}
+#Preview {
+    HighwayVignettePreviewAssembly.makePreview()
+        .environment(\.locale, .init(identifier: "hu_HU"))
+}

@@ -82,7 +82,6 @@ struct CountyVignetteView: View {
 }
 
 // MARK: - Previews
-//#Preview {
-//    CountyVignetteViewAssembly.createView(vignetteResponse: nil,
-//                                          vehicle: Mocks.vehicle)
-//}
+#Preview {
+    CountyVignettePreviewAssembly.makePreview()
+}
