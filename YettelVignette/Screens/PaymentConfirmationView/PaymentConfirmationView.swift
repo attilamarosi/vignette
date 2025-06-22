@@ -111,6 +111,7 @@ struct PaymentConfirmationView: View {
             }
         }
         .background(.colorWhite)
+        .padding(.top, .padding16)
         .task {
             viewModel.createOrderSummary()
         }

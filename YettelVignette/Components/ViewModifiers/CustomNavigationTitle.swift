@@ -4,8 +4,8 @@ import SwiftUI
 
 extension View {
     func customNavigationTitle(_ title: String) -> some View {
-        self.preference(key: CustomNavigationTitleKey.self,
-                        value: title)
+        let localized = NSLocalizedString("\(title)", comment: "")
+        return self.preference(key: CustomNavigationTitleKey.self, value: localized)
     }
 }
 

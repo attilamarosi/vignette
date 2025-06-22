@@ -74,6 +74,7 @@ struct CountyVignetteView: View {
                 }
             }
             .background(.colorWhite)
+            .padding(.top, .padding16)
         }
         .task {
             await viewModel.handleOnAppear()

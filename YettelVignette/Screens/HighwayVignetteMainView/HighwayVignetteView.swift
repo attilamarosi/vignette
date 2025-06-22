@@ -73,7 +73,11 @@ struct HighwayVignetteView: View {
             .background(.colorGrey)
             .padding(.padding16)
         }
+        
         .background(.colorGrey)
+        .clipShape(RoundedCornerShape(corners: [.topLeft, .topRight], radius: .cornerRadius16))
+        .edgesIgnoringSafeArea(.bottom)
+        .padding(.top, .padding16)
         // Handle on appear
         .task {
             await viewModel.handleOnAppear()

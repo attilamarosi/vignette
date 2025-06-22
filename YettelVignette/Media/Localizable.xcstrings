@@ -420,23 +420,6 @@
         }
       }
     },
-    "Yettel" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yettel"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yettel"
-          }
-        }
-      }
-    },
     "zero_huf" : {
       "extractionState" : "manual",
       "localizations" : {
