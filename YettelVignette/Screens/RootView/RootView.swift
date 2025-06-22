@@ -12,19 +12,13 @@ struct RootView: View {
             
             // Content
             AsyncContentView(viewModel: viewModel) {
-                ScrollView {
-                    VStack {
-                        Button {
-                            router.push(to: .highwayVignetteMain)
-                        } label: {
-                            Text("go")
-                        }
-
+                VStack {
+                    CTAButton(style: .primary,
+                              title: String(localized: "purchase_vignette_title")) {
+                        router.push(to: .highwayVignetteMain)
                     }
-                    .padding(.padding16)
                 }
-                
-                
+                .padding(.padding16)
             }
             // Fires necessary tasks when view appears
             .task {

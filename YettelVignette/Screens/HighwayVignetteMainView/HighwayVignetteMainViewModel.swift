@@ -87,7 +87,6 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
     
     private func updatePurchaseItem() {
         guard let vehicle = uiModel?.vehicle,
-              let vehicleVignetteType = vehicle.vignetteType,
               let selectedVignetteModel = uiModel?.highwayVignettes.first(where: { $0.selected }),
               let selectedVignetteType = selectedVignetteModel.vignetteType else {
             return

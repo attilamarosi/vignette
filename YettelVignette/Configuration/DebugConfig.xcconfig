@@ -1,0 +1,8 @@
+// Copyright © 2025 Attila Marosi. All rights reserved.
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+XCC_BUNDLE_NAME = Yettel Dev
+BASE_URL = 127.0.0.1
+BASE_PORT = 8080

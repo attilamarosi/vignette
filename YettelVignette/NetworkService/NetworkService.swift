@@ -25,15 +25,16 @@ extension NetworkService {
                                               query: String? = nil,
                                               body: U? = nil,
                                               rawBody: String? = nil) async throws -> T {
+        let appConfig = AppConfig()
         
-        // TODO: Move url into scheme
-        let urlPrefix = "http://127.0.0.1:8080/"
-
-        guard let endpointURL = URL(string: "\(urlPrefix)\(apiVersion.rawValue)\(endpoint.urlSuffix)") else {
+        guard let baseURL = appConfig?.apiBaseURL else {
             throw APIError.badURL
         }
 
-        guard var urlComponents = URLComponents(url: endpointURL, resolvingAgainstBaseURL: false) else {
+        let baseURLWithVersion = baseURL.appendingPathComponent(apiVersion.rawValue)
+        let urlWithEndpoint = baseURLWithVersion.appendingPathComponent(endpoint.urlSuffix)
+
+        guard var urlComponents = URLComponents(url: urlWithEndpoint, resolvingAgainstBaseURL: false) else {
             throw APIError.badURL
         }
 

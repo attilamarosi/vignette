@@ -115,12 +115,6 @@
         }
       }
     },
-    "go" : {
-
-    },
-    "Key" : {
-      "extractionState" : "manual"
-    },
     "nation-wide-highway-vignettes" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -201,6 +195,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vásárlás"
+          }
+        }
+      }
+    },
+    "purchase_vignette_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase Vignette"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Matrica vásárlás"
           }
         }
       }

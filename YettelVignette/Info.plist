@@ -18,5 +18,11 @@
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
+    <key>XCC_BUNDLE_NAME</key>
+    <string>$(XCC_BUNDLE_NAME)</string>
+    <key>BASE_URL</key>
+    <string>$(BASE_URL)</string>
+    <key>BASE_PORT</key>
+    <string>$(BASE_PORT)</string>
 </dict>
 </plist>
