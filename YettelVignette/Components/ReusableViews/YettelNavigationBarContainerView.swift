@@ -4,39 +4,47 @@ import SwiftUI
 
 struct YettelNavigationBarContainerView<Content: View>: View {
     
-    @Binding var path: NavigationPath
+    @State private var title: String = ""
+    @State private var isNavigationBarVisible: Bool = true
+
+    let canGoBack: Bool
+    let onBack: (() -> Void)?
     let content: Content
-    
-    init(path: Binding<NavigationPath>,
-        @ViewBuilder content: () -> Content) {
-        _path = path
+
+    init(canGoBack: Bool,
+         onBack: (() -> Void)?,
+         @ViewBuilder content: () -> Content) {
+        self.canGoBack = canGoBack
+        self.onBack = onBack
         self.content = content()
     }
-    
+
     var body: some View {
-        NavigationStack(path: $path) {
-            
-            GeometryReader { geometry in
-                VStack(spacing: 0) {
-                    YettelNavigationView(topInset: geometry.safeAreaInsets.top)
-                    
-                    content
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                if isNavigationBarVisible {
+                    YettelNavigationView(title: $title,
+                                          topInset: geometry.safeAreaInsets.top,
+                                          canGoBack: canGoBack,
+                                          onBack: onBack)
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .edgesIgnoringSafeArea(.top)
+                
+                content
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .onPreferenceChange(CustomNavigationTitleKey.self) { title = $0 }
+                    .onPreferenceChange(NavigationBarVisibilityKey.self) {
+                        isNavigationBarVisible = $0
+                    }
             }
-            
-            .navigationBarHidden(true)
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .edgesIgnoringSafeArea(.top)
         }
-        
     }
 }
 
 // MARK: - Preview
-#Preview {
-    YettelNavigationBarContainerView(path: .constant(NavigationPath())) {
-        Text("Test")
-    }
-}
+//#Preview {
+//    YettelNavigationBarContainerView(path: .constant(NavigationPath())) {
+//        Text("Test")
+//    }
+//}

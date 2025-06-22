@@ -114,5 +114,6 @@ struct PaymentConfirmationView: View {
         .task {
             viewModel.createOrderSummary()
         }
+        .customNavigationTitle("e-vignette")
     }
 }

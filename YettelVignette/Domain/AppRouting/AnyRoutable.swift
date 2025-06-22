@@ -27,5 +27,4 @@ struct AnyRoutable: Routable {
     static func == (lhs: AnyRoutable, rhs: AnyRoutable) -> Bool {
         lhs.equals(rhs.base)
     }
-
 }

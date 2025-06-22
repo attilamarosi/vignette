@@ -10,9 +10,9 @@ class AppRouter: ObservableObject {
         let rootView = RootViewRouter(rootCordinator: self, id: UUID())
         return rootView
     }
-    
 }
 
+// MARK: - Push, Pop, Pop to root
 extension AppRouter: NavigationCoordinator {
     func push(_ router: any Routable) {
         DispatchQueue.main.async { [weak self] in

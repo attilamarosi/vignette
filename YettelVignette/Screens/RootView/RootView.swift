@@ -21,7 +21,7 @@ struct RootView: View {
         .task {
             viewModel.handleOnAppear()
         }
-        .navigationTitle("Yettel")
+        .showNavigationBar(false)
     }
 }
 

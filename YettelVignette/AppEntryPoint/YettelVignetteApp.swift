@@ -10,8 +10,6 @@ struct YettelVignetteApp: App {
     var body: some Scene {
         WindowGroup {
             CustomNavigationView(appRouter: appRouter)
-//            RootView()
-//                .environmentObject(router)
         }
     }
 }

@@ -41,7 +41,7 @@ struct PaymentFinishedView: View {
         .task {
             viewModel.handleOnAppear()
         }
-        .navigationBarBackButtonHidden()
+        .showNavigationBar(false)
     }
 }
 

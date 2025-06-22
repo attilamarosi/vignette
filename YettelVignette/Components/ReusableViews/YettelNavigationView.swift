@@ -3,8 +3,12 @@
 import SwiftUI
 
 struct YettelNavigationView: View {
-    var showBackButton: Bool = true
+    
+    @Binding var title: String
     var topInset: CGFloat = 0 // Passed from parent
+    
+    let canGoBack: Bool
+    let onBack: (() -> Void)?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -17,16 +21,19 @@ struct YettelNavigationView: View {
                     VStack {
                         Spacer()
                         HStack {
-                            if showBackButton {
+                            if canGoBack {
                                 Button {
                                     // Action
+                                    onBack?()
                                 } label: {
                                     Image("icon-arrow-back")
                                 }
 
-                                Text("E-matrica")
+                                // Title
+                                Text(title)
                                     .font(.headingMain)
                                     .foregroundStyle(.colorNavy)
+                                
                             }
                             Spacer()
                         }
@@ -35,11 +42,13 @@ struct YettelNavigationView: View {
                     }
                 )
         }
-        .background(.colorGrey)
+        .background(.colorWhite)
     }
 }
 
 // MARK: - Previews
 #Preview {
-    YettelNavigationView()
+    YettelNavigationView(title: .constant("Yettel"),
+                         canGoBack: false,
+                         onBack: {})
 }

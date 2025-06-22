@@ -78,6 +78,7 @@ struct CountyVignetteView: View {
         .task {
             await viewModel.handleOnAppear()
         }
+        .customNavigationTitle("e-vignette")
     }
 }
 

@@ -102,12 +102,13 @@
         }
       }
     },
-    "E-matrica" : {
+    "e-vignette" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "E-Vignette"
+            "value" : "E-vignette"
           }
         },
         "hu" : {
@@ -420,6 +421,7 @@
       }
     },
     "Yettel" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

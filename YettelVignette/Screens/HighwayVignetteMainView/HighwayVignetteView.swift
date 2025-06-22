@@ -78,6 +78,7 @@ struct HighwayVignetteView: View {
         .task {
             await viewModel.handleOnAppear()
         }
+        .customNavigationTitle("e-vignette")
     }
 }
 
