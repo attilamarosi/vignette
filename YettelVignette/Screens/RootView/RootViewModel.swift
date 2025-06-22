@@ -9,9 +9,21 @@ class RootViewModel: AsyncViewModel {
     
     var showPopupSubject = PassthroughSubject<PopupModel, Never>()
     
+    // MARK: - Private Properties
+    
+    private let router: RootViewRouter
+    
+    // MARK: - Initialization
+    init(router: RootViewRouter) {
+        self.router = router
+    }
+    
     // MARK: - Public Methods
     func handleOnAppear() {
         viewState = .finished
     }
     
+    func navigateToHighwayVignettes() {
+        router.navigateToHighwayVignettes()
+    }
 }

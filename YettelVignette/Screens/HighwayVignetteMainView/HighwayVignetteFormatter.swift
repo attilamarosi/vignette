@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct HighwayVignetteMainFormatter: BaseFormatter {
+struct HighwayVignetteFormatter: BaseFormatter {
     
     func createUIModel(from vehicleResponse: VehicleResponse,
                        vignetteResponse: VignetteResponse) -> HighwayVignetteUIModel? {

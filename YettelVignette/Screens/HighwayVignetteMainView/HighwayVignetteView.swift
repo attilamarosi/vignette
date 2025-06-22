@@ -2,11 +2,9 @@
 
 import SwiftUI
 
-struct HighwayVignetteMainView: View {
+struct HighwayVignetteView: View {
     
-    @StateObject var viewModel: HighwayVignetteMainViewModel
-    @State private var navigateToCountyVignetteView = false
-    @State private var navigateToPaymentConfirmationView = false
+    @StateObject var viewModel: HighwayVignetteViewModel
     
     var body: some View {
         AsyncContentView(viewModel: viewModel) {
@@ -52,7 +50,7 @@ struct HighwayVignetteMainView: View {
                     // Purchase button
                     CTAButton(style: .primary,
                               title: String(localized:"purchase_title")) {
-                        navigateToPaymentConfirmationView = true
+                        viewModel.navigateToPaymentConfirmation()
                     }
                               .disabled(!viewModel.vignetteSelected)
                     
@@ -65,7 +63,7 @@ struct HighwayVignetteMainView: View {
                 // Navigation link view
                 VStack {
                     CTANavigationLinkView(title: String(localized: "vignette-one-year")) {
-                        navigateToCountyVignetteView = true
+                        viewModel.navigateToCountyVignette()
                     }
                         
                 }
@@ -80,23 +78,11 @@ struct HighwayVignetteMainView: View {
         .task {
             await viewModel.handleOnAppear()
         }
-        // Navigation
-        .navigationDestination(isPresented: $navigateToCountyVignetteView) {
-            if let vehicle = viewModel.uiModel?.vehicle {
-                CountyVignetteViewAssembly.createView(vignetteResponse: viewModel.apiVignetteResponse,
-                                                      vehicle: vehicle)
-            }
-        }
-        .navigationDestination(isPresented: $navigateToPaymentConfirmationView) {
-            if let purchaseItem = viewModel.purchaseItem {
-                PaymentConfirmationViewAssembly.createView(purchaseItem: purchaseItem)
-            }
-        }
     }
 }
 
 // MARK: - Previews
-#Preview {
-    HighwayVignetteViewAssembly.createView()
-        .environment(\.locale, .init(identifier: "hu_HU"))
-}
+//#Preview {
+//    HighwayVignetteViewAssembly.createView()
+//        .environment(\.locale, .init(identifier: "hu_HU"))
+//}

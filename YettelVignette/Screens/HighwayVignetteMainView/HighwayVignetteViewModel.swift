@@ -17,7 +17,7 @@ struct VignetteModel: Identifiable {
     var selected: Bool
 }
 
-class HighwayVignetteMainViewModel: AsyncViewModel {
+class HighwayVignetteViewModel: AsyncViewModel {
     
     // MARK: - Published Properties
     @Published var viewState: ViewState = .idle
@@ -26,20 +26,24 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
     
     var showPopupSubject = PassthroughSubject<PopupModel, Never>()
     
+    // MARK: - Properties required for the view
     private(set) var purchaseItem: VignettePurchaseItem?
     private var apiVehicleResponse: VehicleResponse?
     
     var apiVignetteResponse: VignetteResponse?
         
     // MARK: - Private Properties
-    private let formatter: HighwayVignetteMainFormatter
+    private let formatter: HighwayVignetteFormatter
     private let repository: GlobalRepository
+    private let router: HighwayVignetteRouter
     
     // MARK: - Initialization
-    init(formatter: HighwayVignetteMainFormatter,
-         repository: GlobalRepository) {
+    init(formatter: HighwayVignetteFormatter,
+         repository: GlobalRepository,
+         router: HighwayVignetteRouter) {
         self.formatter = formatter
         self.repository = repository
+        self.router = router
     }
     
     // MARK: - Public Methods
@@ -111,5 +115,23 @@ class HighwayVignetteMainViewModel: AsyncViewModel {
         purchaseItem = formatter.updatePurchaseItem(with: [orderItem],
                                                     for: vehicle,
                                                     fee: fee)
+    }
+    
+    // MARK: - Routing
+    func navigateToCountyVignette() {
+        guard let vehicle = uiModel?.vehicle else {
+            return
+        }
+        
+        router.navigateToCountyVignette(vehicle: vehicle,
+                                        vignetteResponse: apiVignetteResponse)
+    }
+    
+    func navigateToPaymentConfirmation() {
+        guard let purchaseItem else {
+            return
+        }
+        
+        router.navigateToPaymentConfirmation(purchaseItem: purchaseItem)
     }
 }

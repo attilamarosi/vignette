@@ -5,12 +5,13 @@ import SwiftUI
 @main
 struct YettelVignetteApp: App {
     
-    @StateObject private var router = Router()
+    @StateObject var appRouter = AppRouter()
     
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .environmentObject(router)
+            CustomNavigationView(appRouter: appRouter)
+//            RootView()
+//                .environmentObject(router)
         }
     }
 }

@@ -4,12 +4,12 @@ import SwiftUI
 
 struct HighwayVignetteViewAssembly {
     
-    static func createView() -> some View {
-        let formatter = HighwayVignetteMainFormatter()
-        let repository = GlobalRepositoryImpl()
-        let viewModel = HighwayVignetteMainViewModel(formatter: formatter,
-                                                     repository: repository)
-        
-        return HighwayVignetteMainView(viewModel: viewModel)
-    }
+//    static func createView() -> some View {
+//        let formatter = HighwayVignetteFormatter()
+//        let repository = GlobalRepositoryImpl()
+//        let viewModel = HighwayVignetteViewModel(formatter: formatter,
+//                                                     repository: repository)
+//        
+//        return HighwayVignetteView(viewModel: viewModel)
+//    }
 }
