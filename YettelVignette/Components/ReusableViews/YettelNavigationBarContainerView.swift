@@ -29,22 +29,26 @@ struct YettelNavigationBarContainerView<Content: View>: View {
                                           onBack: onBack)
                 }
                 
+                // Content part
                 content
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .frame(minWidth: 0,
+                           maxWidth: .infinity,
+                           minHeight: 0,
+                           maxHeight: .infinity)
                     .onPreferenceChange(CustomNavigationTitleKey.self) { title = $0 }
                     .onPreferenceChange(NavigationBarVisibilityKey.self) {
                         isNavigationBarVisible = $0
                     }
             }
-            .frame(width: geometry.size.width, height: geometry.size.height)
             .edgesIgnoringSafeArea(.top)
         }
     }
 }
 
 // MARK: - Preview
-//#Preview {
-//    YettelNavigationBarContainerView(path: .constant(NavigationPath())) {
-//        Text("Test")
-//    }
-//}
+#Preview {
+    YettelNavigationBarContainerView(canGoBack: true,
+                                     onBack: {}) {
+        Text("Yettel")
+    }
+}
